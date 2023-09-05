@@ -1,46 +1,26 @@
 package sst.bank.report.html;
 
-import sst.bank.model.Category;
-import sst.bank.model.Operation;
-import sst.common.html.HTMLHyperlinks;
-import sst.common.html.table.*;
+import sst.bank.main.BankBank;
+import sst.common.html.table.HTMLTable;
+import sst.common.html.table.HTMLTableFooterRow;
+import sst.common.html.table.HTMLTableHeaderRow;
+import sst.common.html.table.HTMLTableRow;
 
-import java.util.List;
-
-public class BankTable extends HTMLTable {
+public class SummaryTable extends HTMLTable {
     public static final String[] MONTHS = {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre", "Total"};
+    private final Double[] incomeArray;
+    private final Double[] expensesArray;
+    private final Double[] savingArray;
 
-    private final List<Category> categories;
-    private final List<Operation> operations;
-    private Double[][] array;
-    private Double[] totalArray;
+    public SummaryTable(Double[] incomeArray, Double[] expensesArray, Double[] savingArray) {
+        this.incomeArray = incomeArray;
+        this.expensesArray = expensesArray;
+        this.savingArray = savingArray;
 
-    public BankTable(List<Category> categories, List<Operation> operations) {
-        super();
-        this.categories = categories;
-        this.operations = operations;
-        createArray();
-        createTable();
-    }
-
-    private void createArray() {
-        array = new Double[categories.size()][13];
-        int i = 0;
-        for (Category category : categories.stream().sorted().toList()) {
-            for (int month = 0; month < 12; month++) {
-                array[i][month] = sum(category, month + 1);
-            }
-            i++;
+        for (int i = 0; i < savingArray.length; i++) {
+            savingArray[i] = savingArray[i] * -1.0;
         }
-    }
-
-    private Double sum(Category category, int month) {
-        return savingOrNot(category, operations
-                .stream()
-                .filter(operation -> operation.getCategory().equals(category))
-                .filter(operation -> operation.getExecutionDate().getMonthValue() == month)
-                .mapToDouble(Operation::getAmount)
-                .sum());
+        createTable();
     }
 
     private void createTable() {
@@ -51,51 +31,36 @@ public class BankTable extends HTMLTable {
             row.newHead(s);
         }
 
-        int i = 0;
-        for (Category category : categories.stream().sorted().toList()) {
-            HTMLTableRow htmlTableRow = this.newRow();
-            HTMLHyperlinks link = new HTMLHyperlinks();
-            link.href(String.format("c:\\zt974\\%s.html", category.getName()));
-            link.textContent(category.getName());
-            htmlTableRow.newCell().addChild(link);
-            Double total = 0.0;
-            for (int month = 0; month < 12; month++) {
-                final Double amount = array[i][month];
-                link = new HTMLHyperlinks();
-                link.href(String.format("c:\\zt974\\%s_%d.html", category.getName(), month+1));
-                link.textContent(String.format("%,.2f", amount));
-                htmlTableRow.newCell().addChild(link);
-                total += amount;
-            }
-            htmlTableRow.newCell(String.format("%,.2f", total));
+        summary(BankBank.INCOME_TITLE, incomeArray);
+        summary(BankBank.EXPENSES_TITLE, expensesArray);
+        summary(BankBank.SAVING_TITLE, savingArray);
 
-            i++;
+        footer();
+    }
+
+    private void footer() {
+        HTMLTableRow htmlTableRow;
+        Double total;
+        total = 0.00;
+        HTMLTableFooterRow footer = this.newFooter();
+        footer.newCell().textContent("Total");
+        for (int i = 0; i < 12; i++) {
+            double sum = incomeArray[i] + expensesArray[i] + savingArray[i];
+            footer.newCell().textContent(String.format("%,.2f", sum));
+            total += sum;
         }
-        createFooter(this, array);
+        footer.newCell().textContent(String.format("%,.2f", total));
     }
 
-    public static Double savingOrNot(Category category, Double aDouble) {
-        return (category.getSavings() && aDouble != 0.00) ? aDouble * -1.0 : aDouble;
-    }
 
-    private void createFooter(HTMLTable table, Double[][] array) {
-        HTMLTableFooterRow row = table.newFooter();
-        row.newCell();
-        Double fullTotal = 0.0;
-
-        for (int month = 0; month < 12; month++) {
-            Double total = 0.0;
-            for (int i = 0; i < categories.size(); i++) {
-                total += array[i][month];
-            }
-            row.newCell(String.format("%,.2f", total));
-            fullTotal += total;
-            totalArray[month] = total;
+    private void summary(String title, Double[] input) {
+        HTMLTableRow htmlTableRow = this.newRow();
+        htmlTableRow.newCell().textContent(title);
+        Double total = 0.00;
+        for (int i = 0; i < 12; i++) {
+            htmlTableRow.newCell().textContent(String.format("%,.2f", input[i]));
+            total += input[i];
         }
-        row.newCell(String.format("%,.2f", fullTotal));
-    }
-
-    public Double[] totals() {
-        return totalArray;
+        htmlTableRow.newCell().textContent(String.format("%,.2f", total));
     }
 }
