@@ -1,10 +1,12 @@
 package sst.bank.main;
 
+import com.google.gson.Gson;
 import lombok.extern.log4j.Log4j2;
 import sst.bank.categories.CategoriesDispatcher;
 import sst.bank.csv.OperationFileReader;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
+import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.DataRepository;
 import sst.bank.report.html.IndexHtml;
 import sst.bank.report.html.OperationsByCategory;
@@ -15,6 +17,8 @@ import sst.common.html.HTML;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Log4j2
@@ -24,7 +28,7 @@ public class BankBank {
     public static void main(String[] args) {
         try {
             readCategories();
-            readOperations();
+            readOperations(args[0]);
             dispatchCategories();
             listOperations();
             summary();
@@ -35,15 +39,17 @@ public class BankBank {
         }
     }
 
-    private static void readCategories() {
-        DataRepository.me().addCategories(new CategoriesBuilder().build());
+    private static void readCategories() throws IOException {
+        CategoryRepository repo = new Gson().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
+        DataRepository.me().addCategories(repo.getCategories());
+        log.info(String.format("%4d categories loaded.", DataRepository.me().categories().size()));
     }
 
-    private static void readOperations() throws IOException {
-        OperationFileReader fileReader = new OperationFileReader("2022.csv");
+    private static void readOperations(String filename) throws IOException {
+        OperationFileReader fileReader = new OperationFileReader(filename);
         final List<Operation> operations = fileReader.read();
         DataRepository.me().addOperations(operations);
-        log.info("Operations read : " + DataRepository.me().operations().size());
+        log.info(String.format("%4d operations loaded.", DataRepository.me().operations().size()));
     }
 
     private static void dispatchCategories() {
@@ -52,24 +58,15 @@ public class BankBank {
     }
 
     private static void listOperations() {
-        DataRepository.me().operations()
-                .stream()
-                .filter(operation -> operation.getCategory() == null)
-                .forEach(operation -> log.info(" - " + operation.getId() + " - " + operation.getAmount() + " - " + operation.getTransactionType() + " - " + operation.getCounterpartyAccountNumber() + " - " + operation.getCounterpartyName() + " - " + operation.getDetails()));
+        DataRepository.me().operations().stream().filter(operation -> operation.getCategory() == null).forEach(operation -> log.info(" - " + operation.getId() + " - " + operation.getAmount() + " - " + operation.getTransactionType() + " - " + operation.getCounterpartyAccountNumber() + " - " + operation.getCounterpartyName() + " - " + operation.getDetails()));
     }
 
     private static void summary() {
-        final double countDone = DataRepository.me().operations()
-                .stream()
-                .filter(operation -> operation.getCategory() != null)
-                .count();
-        final double countNotDone = DataRepository.me().operations()
-                .stream()
-                .filter(operation -> operation.getCategory() == null)
-                .count();
+        final double countDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory() != null).count();
+        final double countNotDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory() == null).count();
 
         final double percentage = (countDone / DataRepository.me().operations().size()) * 100;
-        log.info("%,.0f done %,.0f not done (%,.2f %%)%n", countDone, countNotDone, percentage);
+        log.info(String.format("%,.0f done %,.0f not done (%,.2f %%)", countDone, countNotDone, percentage));
     }
 
     private static void report() throws IOException {
@@ -90,7 +87,7 @@ public class BankBank {
     }
 
     private static void save(HTML html, File file) throws IOException {
-        log.info("Saving " + file.getAbsolutePath());
+        log.debug("Saving " + file.getAbsolutePath());
         try (OutputFile outputFile = new OutputFile(file)) {
             outputFile.println(html.toString());
         }

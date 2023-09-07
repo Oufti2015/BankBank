@@ -1,9 +1,17 @@
 package sst.bank.main;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import sst.bank.model.Category;
 import sst.bank.model.Criteria;
 import sst.bank.model.CriteriaField;
+import sst.bank.model.repo.CategoryRepository;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.util.*;
 
 public class CategoriesBuilder {
@@ -11,7 +19,7 @@ public class CategoriesBuilder {
     public CategoriesBuilder() {
     }
 
-    public List<Category> build() {
+    public List<Category> build() throws FileNotFoundException {
         List<Category> result = new ArrayList<>();
 
         counterpartyAccount(result, Category.CREDIT, "BE36774229214981");
@@ -228,7 +236,19 @@ public class CategoriesBuilder {
 
         all(result, Category.UNKNOWN);
 
+        saveResult(result);
+
         return result;
+    }
+
+    private void saveResult(List<Category> result) throws FileNotFoundException {
+        CategoryRepository repo = new CategoryRepository(result);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();;
+        String json = gson.toJson(repo);
+        try (PrintWriter out = new PrintWriter(String.format("%s%sfilename.json", BankBankConstants.BANK_FOLDER, File.separator  ))) {
+            out.println(json);
+        }
     }
 
     //LE PARADIS DES A

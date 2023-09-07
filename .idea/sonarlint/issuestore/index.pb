@@ -37,3 +37,9 @@ i
 9src/main/java/sst/bank/report/html/OperationsByMonth.java,d\0\d06705b1a786462751aa85610aa1ec37e036dc98
 8
 2023.csv,f\e\fe868e56fb8f77f2e93ff01cefc8cb7df877914f
+`
+0src/main/java/sst/bank/main/CategoryManager.java,1\d\1d87ee0d659d966f707ae33747af627cceb5556d
+b
+2src/main/java/sst/bank/main/BankBankConstants.java,5\7\5796dcc6b386f153bc8a80ce2405dba459e65967
+i
+9src/main/java/sst/bank/model/repo/CategoryRepository.java,4\4\44acee75a231c80bd11d766bad49eb56a669d604

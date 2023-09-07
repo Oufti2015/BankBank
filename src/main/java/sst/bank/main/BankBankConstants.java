@@ -6,6 +6,7 @@ public class BankBankConstants {
 
     public static final String BANK_FOLDER = "c:\\zt974\\bank\\";
     public static final String HTML_FOLDER = BANK_FOLDER + File.separator + "html";
+    public static final String JSON_FILE = BANK_FOLDER + File.separator + "categories.json";
     public static final String INCOME_TITLE = "Recettes";
     public static final String EXPENSES_TITLE = "Dépenses";
     public static final String SAVING_TITLE = "Epargne";
