@@ -59,8 +59,13 @@ public class CategoriesBuilder {
         counterpartyAccount(result, Category.CHIENS, "BE34271013711990");
         counterpartyAccount(result, Category.CHIENS, "BE64310026167252");
         counterpartyAccount(result, Category.CHIENS, "BE14973056148583");
+        counterpartyAccount(result, Category.CHIENS, "BE05734062600775", "Bergers Belges");
+        counterpartyAccount(result, Category.CHIENS, "BE96068202601705", "Bonheidense hv");
+        counterpartyAccount(result, Category.CHIENS, "DE13585501300001104488", "Saarbruck");
         counterpartyAccount(result, Category.SOINS, "BE40210007955163");
         counterpartyAccount(result, Category.CADEAUX, "BE28063391529320");
+        counterpartyAccount(result, Category.CADEAUX, "BE85063578223806", "Fabrice Nadin");
+        counterpartyAccount(result, Category.CADEAUX, "BE26001103872629", "Ecole d'Alice");
         counterpartyAccount(result, Category.ASSURANCES, "BE64310180203252");
         counterpartyAccount(result, Category.BCA, "BE05063512144675");
         counterpartyAccount(result, Category.BCA, "BE71068906876669");
@@ -112,6 +117,9 @@ public class CategoriesBuilder {
         detail(result, Category.VOYAGES, "LUFTHANSA");
         detail(result, Category.VOYAGES, "EFFIA");
         detail(result, Category.VOYAGES, "DYNEFF DAC");
+        detail(result, Category.VOYAGES, "RYANAIR IRLANDE");
+        detail(result, Category.VOYAGES, "EUROSPAR ESPAGNE", "Canaries");
+        detail(result, Category.VOYAGES, "GAS ATTACK, S.L. ESPAGNE", "Canaries");
         detail(result, Category.TAXES, "FOD JUSTITIE");
         detail(result, Category.EPARGNE, "EASY SAVE");
         detail(result, Category.ABONNEMENTS, "NETFLIX");
@@ -133,6 +141,7 @@ public class CategoriesBuilder {
         detail(result, Category.ALIMENTATION, "ANIMOBOUTIK");
         detail(result, Category.ALIMENTATION, "BEERWULF ");
         detail(result, Category.ALIMENTATION, "HOLYPAYPAL", "Boissons Holy");
+        detail(result, Category.ALIMENTATION, "MARCHE DES SAVEU");
         detail(result, Category.RESTAURANT, "ARAMARK");
         detail(result, Category.RESTAURANT, "FARINELLA", "Farinella");
         detail(result, Category.RESTAURANT, "RESTAURANT FARIN", "Farinella");
@@ -150,6 +159,9 @@ public class CategoriesBuilder {
         detail(result, Category.RESTAURANT, "VITA DESIGN LUXEMBOUR", "Come A La Maison");
         detail(result, Category.RESTAURANT, "EJC ARLON ARLON", "Faubourg 101");
         detail(result, Category.RESTAURANT, "L'ENFANT GATE", "Habay");
+        detail(result, Category.RESTAURANT, "ENTRE NOUS", "Virton");
+        detail(result, Category.RESTAURANT, "RESTAURANT L'ALTRO");
+        detail(result, Category.RESTAURANT, "TRATTORIA MTT HABAY-LA-VIEI");
         detail(result, Category.ENTRETIEN_MAISON, "XLG HOME LIBRAMONT");
         detail(result, Category.ENTRETIEN_MAISON, "ENMOINS");
         detail(result, Category.ENTRETIEN_MAISON, "PLAN-IT");
@@ -174,6 +186,7 @@ public class CategoriesBuilder {
         detail(result, Category.CHIENS, "OF SHADOW IN LIGH");
         detail(result, Category.CHIENS, "WORLDAGILIT");
         detail(result, Category.CHIENS, "DECATHLON");
+        detail(result, Category.CHIENS, "CRAFTYFOX");
         detail(result, Category.CADEAUX, "SPRL L ANCOLIE");
         detail(result, Category.LOISIRS, "EMISYS");
         detail(result, Category.LOISIRS, "PARKING");
@@ -185,6 +198,8 @@ public class CategoriesBuilder {
         detail(result, Category.SOINS, "OPTIQUE DEBOULLE", "La Lunetterie");
         detail(result, Category.SOINS, "PHARMACIE DU KIR");
         detail(result, Category.SOINS, "NEWPHARMA");
+        detail(result, Category.SOINS, "PARTENA MUTUALITE LIBRE");
+        detail(result, Category.SOINS, "DR PAOLO CECCHINI", "Ophtalmo");
         detail(result, Category.VOITURES, "MULLER PNEUS LUXEMBOURG");
         detail(result, Category.CARBURANTS, "ESSO RODANGE");
         detail(result, Category.CARBURANTS, "TOTAL N");
@@ -197,6 +212,8 @@ public class CategoriesBuilder {
         detail(result, Category.CHIENS, "GOLDMEDICS");
         detail(result, Category.CHIENS, "PETNESS");
         detail(result, Category.VOITURES, "CARGLASS");
+        detail(result, Category.VOITURES, "AUTOSECURITE");
+        detail(result, Category.VOITURES, "J.A.R. MOTOR SA ARLON", "Llorens");
 
         transactionType(result, Category.FRAIS_BANCAIRES, "Coûts opérations diverses");
         transactionType(result, Category.FRAIS_BANCAIRES, "Intérêts du compte à vue");
@@ -215,6 +232,10 @@ public class CategoriesBuilder {
     }
 
     //LE PARADIS DES A
+    private void counterpartyAccount(List<Category> categories, String categoryName, String criteria, String comment) {
+        createCategory(categories, categoryName, criteria, CriteriaField.COUNTERPARTY_ACCOUNT, comment);
+    }
+
     private void counterpartyAccount(List<Category> categories, String categoryName, String criteria) {
         createCategory(categories, categoryName, criteria, CriteriaField.COUNTERPARTY_ACCOUNT);
     }

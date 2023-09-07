@@ -1,3 +1,7 @@
+body {
+    font-family: "Verdana", "Helvetica", Sans-Serif;
+}
+
 table.blueTable {
     font-family: Verdana, Geneva, sans-serif;
     border: 1px solid #1C6EA4;
@@ -43,7 +47,7 @@ table.blueTable thead th:first-child {
 table.blueTable tfoot {
     font-size: 14px;
     font-weight: bold;
-    color: #202ef1;
+    color: #73AD21;
     background: #D0E4F5;
     background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
     background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
@@ -102,7 +106,6 @@ table.operationstable thead th {
     font-weight: bold;
     color: #FFFFFF;
     border-left: 2px solid #D0E4F5;
-    width: 7%;
 }
 
 table.operationstable thead th:first-child {
@@ -148,4 +151,27 @@ h2 {
     font-weight: bold;
     color: #202ef1;
     background: #ffffff;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Hauteur du pied-de-page */
+    background: #f7f7f7;
+    padding: 3rem;
+    /* padding-top: 5rem; */
+    padding-top: 7rem;
+    padding-bottom: 15px;
 }

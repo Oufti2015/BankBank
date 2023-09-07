@@ -1,5 +1,6 @@
 package sst.bank.report.html;
 
+import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
@@ -31,7 +32,7 @@ public class OperationsByCategoryAndMonth extends HTML {
         div.classId("centered-div");
         body.addChild(div);
 
-        div.addChild(title("Opérations " + category.getName() + " de " + BankTable.MONTHS[month - 1]));
+        div.addChild(title("Opérations " + category.getName() + " de " + BankBankConstants.MONTHS[month - 1]));
 
         final List<Operation> operations = DataRepository.me().operations().stream()
                 .filter(operation -> category.equals(operation.getCategory()))

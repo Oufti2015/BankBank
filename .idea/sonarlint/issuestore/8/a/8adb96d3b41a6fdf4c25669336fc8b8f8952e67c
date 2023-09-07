@@ -1,7 +1,3 @@
 
-L	java:S106*"+Replace this use of System.out by a logger.(ŞĞê¶ùÿÿÿÿ8¹İ¥„¥1
-G	java:S1066"+Replace this use of System.out by a logger.(ÙÍäñ8Áİ¥„¥1
-L	java:S106D"+Replace this use of System.out by a logger.(Ÿ¬‡¾ıÿÿÿÿ8Äİ¥„¥1
 c
-java:S1075I"ARefactor your code to get this URI from a customizable parameter.(Áƒäúÿÿÿÿ8Ìİ¥„¥1
-L	java:S106U"+Replace this use of System.out by a logger.(ùíúıÿÿÿÿ8àªì„¥1
+java:S1075Q"ARefactor your code to get this URI from a customizable parameter.(Áƒäúÿÿÿÿ8¦³ÈØ¦1

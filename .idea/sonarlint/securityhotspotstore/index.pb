@@ -31,3 +31,9 @@ l
 <src/main/java/sst/bank/report/html/OperationsByCategory.java,8\a\8a37c1a720b2d7c2e71f54867d6cc1bd6b17d0bb
 t
 Dsrc/main/java/sst/bank/report/html/OperationsByCategoryAndMonth.java,2\7\27a2d22cc1542e20e8c1980119939095dbe76fec
+d
+4src/main/java/sst/bank/report/html/SummaryTable.java,a\3\a3ed584071df8b7f8ce618b88cdb356c5b42b6e5
+i
+9src/main/java/sst/bank/report/html/OperationsByMonth.java,d\0\d06705b1a786462751aa85610aa1ec37e036dc98
+8
+2023.csv,f\e\fe868e56fb8f77f2e93ff01cefc8cb7df877914f

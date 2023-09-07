@@ -1,13 +1,12 @@
 package sst.bank.report.html;
 
-import sst.bank.main.BankBank;
+import sst.bank.main.BankBankConstants;
 import sst.common.html.table.HTMLTable;
 import sst.common.html.table.HTMLTableFooterRow;
 import sst.common.html.table.HTMLTableHeaderRow;
 import sst.common.html.table.HTMLTableRow;
 
 public class SummaryTable extends HTMLTable {
-    public static final String[] MONTHS = {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre", "Total"};
     private final Double[] incomeArray;
     private final Double[] expensesArray;
     private final Double[] savingArray;
@@ -27,29 +26,28 @@ public class SummaryTable extends HTMLTable {
         this.classId("blueTable");
         HTMLTableHeaderRow row = this.newHeader();
         row.newHead();
-        for (String s : MONTHS) {
+        for (String s : BankBankConstants.MONTHS) {
             row.newHead(s);
         }
 
-        summary(BankBank.INCOME_TITLE, incomeArray);
-        summary(BankBank.EXPENSES_TITLE, expensesArray);
-        summary(BankBank.SAVING_TITLE, savingArray);
+        summary(BankBankConstants.INCOME_TITLE, incomeArray);
+        summary(BankBankConstants.EXPENSES_TITLE, expensesArray);
+        summary(BankBankConstants.SAVING_TITLE, savingArray);
 
         footer();
     }
 
     private void footer() {
-        HTMLTableRow htmlTableRow;
         Double total;
         total = 0.00;
         HTMLTableFooterRow footer = this.newFooter();
         footer.newCell().textContent("Total");
         for (int i = 0; i < 12; i++) {
             double sum = incomeArray[i] + expensesArray[i] + savingArray[i];
-            footer.newCell().textContent(String.format("%,.2f", sum));
+            footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, sum));
             total += sum;
         }
-        footer.newCell().textContent(String.format("%,.2f", total));
+        footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, total));
     }
 
 
@@ -58,9 +56,9 @@ public class SummaryTable extends HTMLTable {
         htmlTableRow.newCell().textContent(title);
         Double total = 0.00;
         for (int i = 0; i < 12; i++) {
-            htmlTableRow.newCell().textContent(String.format("%,.2f", input[i]));
+            htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, input[i]));
             total += input[i];
         }
-        htmlTableRow.newCell().textContent(String.format("%,.2f", total));
+        htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, total));
     }
 }

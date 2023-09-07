@@ -1,5 +1,6 @@
 package sst.bank.report.html;
 
+import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.common.html.table.HTMLTable;
@@ -36,7 +37,7 @@ public class OperationsTable extends HTMLTable {
             htmlTableRow.newCell(operation.getId());
             htmlTableRow.newCell(operation.getExecutionDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
             htmlTableRow.newCell(operation.getCategory().getName());
-            htmlTableRow.newCell(String.format("%,.2f", operation.getAmount()));
+            htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, operation.getAmount()));
             htmlTableRow.newCell(operation.getTransactionType());
             htmlTableRow.newCell(operation.getCounterpartyAccountNumber());
             htmlTableRow.newCell(operation.getCounterpartyName());

@@ -1,5 +1,6 @@
 package sst.bank.report.html;
 
+import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
@@ -35,7 +36,7 @@ public class OperationsByMonth extends HTML {
 
         final double sum = operations.stream().mapToDouble(Operation::getAmount).sum();
 
-        div.addChild(title(String.format("Opérations de %s (%,.2f €)", BankTable.MONTHS[month - 1], sum)));
+        div.addChild(title(String.format("Opérations de %s (%,.2f €)", BankBankConstants.MONTHS[month - 1], sum)));
 
         div.addChild(new OperationsTable(operations.stream().map(Operation::getCategory).distinct().toList(), operations));
 
