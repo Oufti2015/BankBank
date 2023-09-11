@@ -1,6 +1,5 @@
 package sst.bank.report.html;
 
-import sst.bank.main.BankBank;
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
@@ -8,7 +7,6 @@ import sst.bank.model.repo.DataRepository;
 import sst.common.html.*;
 import sst.common.html.head.HTMLHead;
 
-import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Comparator;
@@ -40,21 +38,21 @@ public class IndexHtml extends HTML {
 
     private void income(Container body) {
         body.addChild(title(BankBankConstants.INCOME_TITLE));
-        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(Category::getIncome).toList(), DataRepository.me().operations(), true);
+        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(Category::getIncome).toList(), DataRepository.me().operations(), false);
         body.addChild(bankTable);
         incomeArray = bankTable.totals();
     }
 
     private void expenses(Container body) {
         body.addChild(title(BankBankConstants.EXPENSES_TITLE));
-        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(category -> !category.getIncome() && !category.getSavings()).toList(), DataRepository.me().operations(), true);
+        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(category -> !category.getIncome() && !category.getSavings()).toList(), DataRepository.me().operations(), false);
         body.addChild(bankTable);
         expensesArray = bankTable.totals();
     }
 
     private void savings(Container body) {
         body.addChild(title(BankBankConstants.SAVING_TITLE));
-        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(Category::getSavings).toList(), DataRepository.me().operations(), true);
+        BankTable bankTable = new BankTable(DataRepository.me().categories().stream().filter(Category::getSavings).toList(), DataRepository.me().operations(), false);
         body.addChild(bankTable);
         savingArray = bankTable.totals();
     }

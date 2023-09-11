@@ -1,17 +1,16 @@
 package sst.bank.report.html;
 
+import lombok.extern.log4j.Log4j2;
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.common.html.HTMLHyperlinks;
-import sst.common.html.table.HTMLTable;
-import sst.common.html.table.HTMLTableFooterRow;
-import sst.common.html.table.HTMLTableHeaderRow;
-import sst.common.html.table.HTMLTableRow;
+import sst.common.html.table.*;
 
 import java.io.File;
 import java.util.List;
 
+@Log4j2
 public class BankTable extends HTMLTable {
 
     private final List<Category> categories;
@@ -79,6 +78,18 @@ public class BankTable extends HTMLTable {
                 link.href(String.format("%s%s%s_%d.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName(), month + 1));
                 link.textContent(String.format(BankBankConstants.FORMAT_DOUBLE, amount));
                 htmlTableRow.newCell().addChild(link);
+                final Double budget = category.budget(month);
+                final HTMLTableCell cell = htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, budget));
+                if (Boolean.FALSE.equals(category.getSavings())) {
+                    if (amount < budget) {
+                        cell.id("negative");
+                    }
+                } else {
+                    if (amount > budget) {
+                        cell.id("negative");
+                    }
+                }
+
                 total += amount;
 
                 categoryBudgetString = String.format("%s, %d.00", categoryBudgetString, amount.intValue());
@@ -86,7 +97,7 @@ public class BankTable extends HTMLTable {
             categoryBudgetString += ")";
 
             if (debug) {
-                System.out.println(String.format("%,.2f : %s", (total / 9.00), categoryBudgetString));
+                log.debug(String.format("%,.2f : %s", (total / 9.00), categoryBudgetString));
             }
             htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, total));
 
@@ -102,7 +113,9 @@ public class BankTable extends HTMLTable {
                 HTMLHyperlinks link = new HTMLHyperlinks();
                 link.href(String.format("%s%s%d.html", BankBankConstants.HTML_FOLDER, File.separator, i + 1));
                 link.textContent(BankBankConstants.MONTHS[i]);
-                row.newHead().addChild(link);
+                final HTMLTableHeader head = row.newHead();
+                head.addChild(link);
+                head.colspan(2);
             } else {
                 row.newHead(BankBankConstants.MONTHS[i]);
             }
@@ -110,7 +123,8 @@ public class BankTable extends HTMLTable {
     }
 
     public static Double savingOrNot(Category category, Double aDouble) {
-        return (category.getSavings() && aDouble != 0.00) ? aDouble * -1.0 : aDouble;
+        // return (category.getSavings() && aDouble != 0.00) ? aDouble * -1.0 : aDouble;
+        return aDouble;
     }
 
     private void createFooter(HTMLTable table, Double[][] array) {
@@ -124,6 +138,9 @@ public class BankTable extends HTMLTable {
                 total += array[i][month];
             }
             row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, total));
+            int finalMonth = month;
+            row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, categories.stream().mapToDouble(c -> c.budget(finalMonth)).sum()));
+
             fullTotal += total;
             totalArray[month] = total;
         }
