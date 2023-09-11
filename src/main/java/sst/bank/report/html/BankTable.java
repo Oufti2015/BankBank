@@ -4,7 +4,10 @@ import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.common.html.HTMLHyperlinks;
-import sst.common.html.table.*;
+import sst.common.html.table.HTMLTable;
+import sst.common.html.table.HTMLTableFooterRow;
+import sst.common.html.table.HTMLTableHeaderRow;
+import sst.common.html.table.HTMLTableRow;
 
 import java.io.File;
 import java.util.List;
@@ -15,6 +18,17 @@ public class BankTable extends HTMLTable {
     private final List<Operation> operations;
     private Double[][] array;
     private final Double[] totalArray = new Double[12];
+    private boolean debug = false;
+
+
+    public BankTable(List<Category> categories, List<Operation> operations, boolean debug) {
+        super();
+        this.categories = categories;
+        this.operations = operations;
+        this.debug = debug;
+        createArray();
+        createTable();
+    }
 
     public BankTable(List<Category> categories, List<Operation> operations) {
         super();
@@ -51,6 +65,8 @@ public class BankTable extends HTMLTable {
 
         int i = 0;
         for (Category category : categories.stream().sorted().toList()) {
+            String categoryBudgetString = category.getName();
+
             HTMLTableRow htmlTableRow = this.newRow();
             HTMLHyperlinks link = new HTMLHyperlinks();
             link.href(String.format("%s%s%s.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName()));
@@ -64,6 +80,13 @@ public class BankTable extends HTMLTable {
                 link.textContent(String.format(BankBankConstants.FORMAT_DOUBLE, amount));
                 htmlTableRow.newCell().addChild(link);
                 total += amount;
+
+                categoryBudgetString = String.format("%s, %d.00", categoryBudgetString, amount.intValue());
+            }
+            categoryBudgetString += ")";
+
+            if (debug) {
+                System.out.println(String.format("%,.2f : %s", (total / 9.00), categoryBudgetString));
             }
             htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, total));
 

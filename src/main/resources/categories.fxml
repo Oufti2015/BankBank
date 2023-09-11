@@ -1,21 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sst.bank.controllers.CategoryManagerController">
    <children>
       <GridPane>
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.halignment="RIGHT" />
+            <ComboBox fx:id="categoryComboBox" prefHeight="25.0" prefWidth="377.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criteria" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="392.0" text="Add criteria" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <RadioButton mnemonicParsing="false" text="Income" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <RadioButton mnemonicParsing="false" text="Saving" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <ComboBox prefHeight="25.0" prefWidth="397.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criteria Type" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="4" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="398.0" text="Create New Category" GridPane.columnIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="January" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="February" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="March" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="April" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="May" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="June" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="July" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="August" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="September" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="October" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="November" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="December" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="13" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="466.0" text="Apply Budget" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+            <TextField fx:id="januaryBudget" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <TextField fx:id="februaryBudget" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <TextField fx:id="marchBudget" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <TextField fx:id="aprilBudget" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <TextField fx:id="mayBudget" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <TextField fx:id="juneBudget" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <TextField fx:id="julyBudget" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+            <TextField fx:id="augustBudget" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <TextField fx:id="septemberBudget" GridPane.columnIndex="8" GridPane.rowIndex="10" />
+            <TextField fx:id="octoberBudget" GridPane.columnIndex="8" GridPane.rowIndex="11" />
+            <TextField fx:id="novemberBudget" GridPane.columnIndex="8" GridPane.rowIndex="12" />
+            <TextField fx:id="decemberBudget" GridPane.columnIndex="8" GridPane.rowIndex="13" />
+         </children>
       </GridPane>
    </children>
 </VBox>

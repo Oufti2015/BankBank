@@ -42,8 +42,18 @@ public class Category implements Comparable<Category> {
     private Boolean savings = false;
     private final List<Criteria> criteria = new ArrayList<>();
 
+    private Double[] budget = new Double[12];
+
     @Override
     public int compareTo(Category o) {
         return this.getName().compareTo(o.getName());
+    }
+
+    public void addBudget(int month, Double value) {
+        budget[month] = value;
+    }
+
+    public Double budget(int month) {
+        return budget[month];
     }
 }

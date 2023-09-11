@@ -43,3 +43,5 @@ b
 2src/main/java/sst/bank/main/BankBankConstants.java,5\7\5796dcc6b386f153bc8a80ce2405dba459e65967
 i
 9src/main/java/sst/bank/model/repo/CategoryRepository.java,4\4\44acee75a231c80bd11d766bad49eb56a669d604
+q
+Asrc/main/java/sst/bank/controllers/CategoryManagerController.java,2\8\284b86061f1a19a1308db3a40c23ca8e60a6c45e

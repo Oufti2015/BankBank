@@ -1,6 +1,5 @@
 package sst.bank.main;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import sst.bank.model.Category;
@@ -11,7 +10,6 @@ import sst.bank.model.repo.CategoryRepository;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
 import java.util.*;
 
 public class CategoriesBuilder {
@@ -170,6 +168,7 @@ public class CategoriesBuilder {
         detail(result, Category.RESTAURANT, "ENTRE NOUS", "Virton");
         detail(result, Category.RESTAURANT, "RESTAURANT L'ALTRO");
         detail(result, Category.RESTAURANT, "TRATTORIA MTT HABAY-LA-VIEI");
+        detail(result, Category.RESTAURANT, "QOSQO K LUXEMBOURG");
         detail(result, Category.ENTRETIEN_MAISON, "XLG HOME LIBRAMONT");
         detail(result, Category.ENTRETIEN_MAISON, "ENMOINS");
         detail(result, Category.ENTRETIEN_MAISON, "PLAN-IT");
@@ -244,9 +243,10 @@ public class CategoriesBuilder {
     private void saveResult(List<Category> result) throws FileNotFoundException {
         CategoryRepository repo = new CategoryRepository(result);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        ;
         String json = gson.toJson(repo);
-        try (PrintWriter out = new PrintWriter(String.format("%s%sfilename.json", BankBankConstants.BANK_FOLDER, File.separator  ))) {
+        try (PrintWriter out = new PrintWriter(String.format("%s%sfilename.json", BankBankConstants.BANK_FOLDER, File.separator))) {
             out.println(json);
         }
     }
@@ -304,5 +304,80 @@ public class CategoriesBuilder {
             category = first.get();
         }
         return category;
+    }
+
+    private void budgets(List<Category> categories) {
+        for (Category category : categories) {
+            switch (category.getName()) {
+                case Category.CREDIT ->
+                        addBudget(category, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 500.0, 500.0);
+                case Category.ASSURANCES ->
+                        addBudget(category, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+                case Category.EPARGNE ->
+                        addBudget(category, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 1140.0, 500.0, 500.0);
+                case Category.VOYAGES ->
+                        addBudget(category, -270.30, 0.0, -563.50, -153.04, -832.31, -1730.70, 110.59, -310.70, -500.0, -3000.0, 0.0, 0.0);
+                case Category.CADEAUX ->
+                        addBudget(category, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00, -60.00);
+                case Category.CARBURANTS ->
+                        addBudget(category, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -300.0);
+                case Category.ELECTRICITE ->
+                        addBudget(category, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0, -84.0);
+                case Category.FRAIS_BANCAIRES ->
+                        addBudget(category, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0);
+                case Category.ABONNEMENTS ->
+                        addBudget(category, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0, -64.0);
+                case Category.EAU ->
+                        addBudget(category, 0.0, 0.0, -78.0, 0.0, 0.0, -78.0, 0.0, 0.0, -78.0, 0.0, 0.0, -78.0);
+                case Category.SALAIRE ->
+                        addBudget(category, 4234.79, 4308.96, 9274.40, 4477.01, 4996.81, 6812.52, 4767.48, 4707.65, 4707.65, 4707.65, 4707.65, 4707.65);
+                case Category.ENTRETIEN_MAISON ->
+                        addBudget(category, -234.0, -234.0, -234.0, -2510.00, -234.0, -234.0, -234.0, -234.0, -234.0, -234.0, -234.0, -234.0);
+                case Category.LOISIRS ->
+                        addBudget(category, -99.00, 0.00, -215.00, -121.00, -30.00, -90.00, -11.00, 0.00, -100.00, -100.00, -100.00, -100.00);
+                case Category.ALIMENTATION ->
+                        addBudget(category, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00, -242.00);
+                case Category.SOINS ->
+                        addBudget(category, 48.00, 0.00, 65.00, 0.00, -247.00, 75.00, -24.00, -124.00, -24.00, 0.00, 0.00, 0.00);
+                case Category.CHIENS ->
+                        addBudget(category, -79.00, -50.00, -418.00, -220.00, -50.00, -952.00, -105.00, -358.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.ELECTROMENAGER ->
+                        addBudget(category, -24.00, 0.00, -123.00, 0.00, -123.00, -44.00, -139.00, -135.00, -135.00, -135.00, -135.00, -135.00);
+                case Category.RESTAURANT ->
+                        addBudget(category, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0, -325.0);
+                case Category.HYGIENE ->
+                        addBudget(category, 0.00, 0.00, -81.00, 0.00, 0.00, 0.00, -47.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.TAXES ->
+                        addBudget(category, 0.00, 0.00, -1547.00, 0.00, 71.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.TELEPHONIE ->
+                        addBudget(category, -144.00, -143.00, -143.00, -144.00, -99.00, -119.00, -123.00, -322.00, -185.00, -125.0, -125.0, -125.0);
+                case Category.ECOMMERCE ->
+                        addBudget(category, 0.00, -37.00, -171.00, -371.00, -285.00, -335.00, -671.00, -758.00, -28.00, 0.00, 0.00, 0.00);
+                case Category.VOITURES ->
+                        addBudget(category, 0.00, 0.00, 0.00, 0.00, -308.00, 0.00, 0.00, -244.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.BCA ->
+                        addBudget(category, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 425.00, -105.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.OTHER_INCOME ->
+                        addBudget(category, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 1623.00, 0.00, 0.00, 0.00, 0.00);
+                case Category.UNKNOWN ->
+                        addBudget(category, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+            }
+        }
+    }
+
+    private void addBudget(Category category, Double jan, Double feb, Double mar, Double apr, Double mai, Double jun, Double jul, Double aug, Double sep, Double oct, Double nov, Double dec) {
+        int i = 0;
+        category.addBudget(i++, jan);
+        category.addBudget(i++, feb);
+        category.addBudget(i++, mar);
+        category.addBudget(i++, apr);
+        category.addBudget(i++, mai);
+        category.addBudget(i++, jun);
+        category.addBudget(i++, jul);
+        category.addBudget(i++, aug);
+        category.addBudget(i++, sep);
+        category.addBudget(i++, oct);
+        category.addBudget(i++, nov);
+        category.addBudget(i, dec);
     }
 }

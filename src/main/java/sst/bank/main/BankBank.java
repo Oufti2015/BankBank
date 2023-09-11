@@ -1,12 +1,10 @@
 package sst.bank.main;
 
-import com.google.gson.Gson;
 import lombok.extern.log4j.Log4j2;
 import sst.bank.categories.CategoriesDispatcher;
 import sst.bank.csv.OperationFileReader;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
-import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.DataRepository;
 import sst.bank.report.html.IndexHtml;
 import sst.bank.report.html.OperationsByCategory;
@@ -17,8 +15,6 @@ import sst.common.html.HTML;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 @Log4j2
@@ -40,8 +36,11 @@ public class BankBank {
     }
 
     private static void readCategories() throws IOException {
-        CategoryRepository repo = new Gson().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
-        DataRepository.me().addCategories(repo.getCategories());
+        CategoriesBuilder categoriesBuilder = new CategoriesBuilder();
+        DataRepository.me().addCategories(categoriesBuilder.build());
+
+        //CategoryRepository repo = new Gson().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
+        //DataRepository.me().addCategories(repo.getCategories());
         log.info(String.format("%4d categories loaded.", DataRepository.me().categories().size()));
     }
 
@@ -59,6 +58,8 @@ public class BankBank {
 
     private static void listOperations() {
         DataRepository.me().operations().stream().filter(operation -> operation.getCategory() == null).forEach(operation -> log.info(" - " + operation.getId() + " - " + operation.getAmount() + " - " + operation.getTransactionType() + " - " + operation.getCounterpartyAccountNumber() + " - " + operation.getCounterpartyName() + " - " + operation.getDetails()));
+
+
     }
 
     private static void summary() {
