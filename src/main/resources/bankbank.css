@@ -1,156 +1,187 @@
 body {
-    font-family: "Verdana", "Helvetica", Sans-Serif;
+  font-family: "Verdana", "Helvetica", Sans-Serif;
 }
 
 table.blueTable {
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid #1C6EA4;
-    background-color: #EEEEEE;
-    width: 100%;
-    text-align: right;
-    border-collapse: collapse;
+  font-family: Verdana, Geneva, sans-serif;
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: right;
+  border-collapse: collapse;
 }
 
 table.blueTable td, table.blueTable th {
-    border: 1px solid #AAAAAA;
-    padding: 3px 2px;
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
 }
 
 table.blueTable tbody td {
-    font-size: 12px;
+  font-size: 12px;
+
+}
+
+#negative {
+  font-size: 13px;
+  color: red;
+  font-weight: bold;
 }
 
 table.blueTable tr:nth-child(even) {
-    background: #D0E4F5;
+  background: #D0E4F5;
 }
 
 table.blueTable thead {
-    background: #1C6EA4;
-    background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    border-bottom: 2px solid #444444;
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
 }
 
 table.blueTable thead th {
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-    border-left: 2px solid #D0E4F5;
-    width: 7%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+  width: 7%;
+  text-align: center;
 }
 
+table.blueTable thead a:link {
+  color: #FFFFFF;
+  text-decoration: none; 
+}
+
+table.blueTable thead a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+
+table.blueTable thead a:hover {
+  color: #f6fa03;
+  text-decoration: none;
+}
+
+table.blueTable thead a:active {
+  color: #fc0303;
+  text-decoration: none;
+}
+
+
 table.blueTable thead th:first-child {
-    border-left: none;
+  border-left: none;
 }
 
 table.blueTable tfoot {
-    font-size: 14px;
-    font-weight: bold;
-    color: #73AD21;
-    background: #D0E4F5;
-    background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    border-top: 2px solid #444444;
+  font-size: 14px;
+  font-weight: bold;
+  color: #73AD21;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
 }
 
 table.blueTable tfoot td {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 table.blueTable tfoot .links {
-    text-align: right;
+  text-align: right;
 }
 
 table.blueTable tfoot .links a {
-    display: inline-block;
-    background: #1C6EA4;
-    color: #FFFFFF;
-    padding: 2px 8px;
-    border-radius: 5px;
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
 }
 
 table.operationstable {
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid #1C6EA4;
-    background-color: #EEEEEE;
-    width: 100%;
-    text-align: right;
-    border-collapse: collapse;
+  font-family: Verdana, Geneva, sans-serif;
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: right;
+  border-collapse: collapse;
 }
 
 table.operationstable td, table.operationstable th {
-    border: 1px solid #AAAAAA;
-    padding: 3px 2px;
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
 }
 
 table.operationstable tbody td {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 table.operationstable tr:nth-child(even) {
-    background: #D0E4F5;
+  background: #D0E4F5;
 }
 
 table.operationstable thead {
-    background: #1C6EA4;
-    background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    border-bottom: 2px solid #444444;
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+  text-align: center;
 }
 
 table.operationstable thead th {
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-    border-left: 2px solid #D0E4F5;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
 }
 
 table.operationstable thead th:first-child {
-    border-left: none;
+  border-left: none;
 }
 
 table.operationstable tfoot {
-    font-size: 14px;
-    font-weight: bold;
-    color: #202ef1;
-    background: #D0E4F5;
-    background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    border-top: 2px solid #444444;
+  font-size: 14px;
+  font-weight: bold;
+  color: #202ef1;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
 }
 
 table.operationstable tfoot td {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 table.operationstable tfoot .links {
-    text-align: right;
+  text-align: right;
 }
 
 table.operationstable tfoot .links a {
-    display: inline-block;
-    background: #1C6EA4;
-    color: #FFFFFF;
-    padding: 2px 8px;
-    border-radius: 5px;
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
 }
 
 .centered-div {
-    margin: auto;
-    width: 90%;
-    border: 3px solid #73AD21;
-    padding: 10px;
+  margin: auto;
+  width: 90%;
+  border: 3px solid #73AD21;
+  padding: 10px;
 }
 
 h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #202ef1;
-    background: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  color: #202ef1;
+  background: #ffffff;
 }
 
 a:link { text-decoration: none; }
@@ -165,13 +196,17 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
 #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            /* Hauteur du pied-de-page */
-    background: #f7f7f7;
-    padding: 3rem;
-    /* padding-top: 5rem; */
-    padding-top: 7rem;
-    padding-bottom: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; /* Hauteur du pied-de-page */
+  background: #f7f7f7;
+  padding: 3rem;
+  /* padding-top: 5rem; */
+  padding-top: 7rem;
+  padding-bottom: 15px;
+}
+
+#optabledate {
+  width: 4%;
 }
