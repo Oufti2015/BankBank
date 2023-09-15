@@ -1,7 +1,6 @@
 package sst.bank.report.html;
 
 import sst.bank.main.BankBankConstants;
-import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.common.html.table.HTMLTable;
 import sst.common.html.table.HTMLTableHeaderRow;
@@ -9,17 +8,16 @@ import sst.common.html.table.HTMLTableRow;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Comparator;
 import java.util.List;
 
 public class OperationsTable extends HTMLTable {
-    private static final String[] HEADERS = {"Id", "Date", "Catégorie", "Montant", "Type de Transaction", "Contrepartie", "Nom de Contrepartie", "Communication", "Détails"};
-    private final List<Category> categories;
+    private static final String[] HEADERS = {/*"Id", */"Date", "Catégorie", "Montant", "Type de Transaction", "Contrepartie", "Nom de Contrepartie", "Communication", "Détails"};
     private final List<Operation> operations;
 
-    public OperationsTable(List<Category> categories, List<Operation> operations) {
+    public OperationsTable(List<Operation> operations) {
         super();
-        this.categories = categories;
-        this.operations = operations.stream().sorted((o1, o2) -> o1.getExecutionDate().compareTo(o2.getExecutionDate())).toList();
+        this.operations = operations.stream().sorted(Comparator.comparing(Operation::getExecutionDate)).toList();
 
         createTable();
     }
@@ -31,10 +29,8 @@ public class OperationsTable extends HTMLTable {
             row.newHead(s);
         }
 
-        int i = 0;
         for (Operation operation : operations) {
             HTMLTableRow htmlTableRow = this.newRow();
-            htmlTableRow.newCell(operation.getId());
             htmlTableRow.newCell(operation.getExecutionDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
             htmlTableRow.newCell(operation.getCategory().getName());
             htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, operation.getAmount()));
