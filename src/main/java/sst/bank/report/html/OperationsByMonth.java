@@ -1,7 +1,6 @@
 package sst.bank.report.html;
 
 import sst.bank.main.BankBankConstants;
-import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
 import sst.common.html.HTML;
@@ -10,7 +9,6 @@ import sst.common.html.HTMLDiv;
 import sst.common.html.HTMLHeader;
 import sst.common.html.head.HTMLHead;
 
-import java.util.Collections;
 import java.util.List;
 
 public class OperationsByMonth extends HTML {
@@ -38,14 +36,13 @@ public class OperationsByMonth extends HTML {
 
         div.addChild(title(String.format("Opérations de %s (%,.2f €)", BankBankConstants.MONTHS[month - 1], sum)));
 
-        div.addChild(new OperationsTable(operations.stream().map(Operation::getCategory).distinct().toList(), operations));
+        div.addChild(new OperationsTable(operations));
 
         div = new HTMLDiv();
         div.classId("centered-div");
         body.addChild(div);
 
         div.addChild(new BankTable(operations.stream().map(Operation::getCategory).distinct().toList(), operations));
-        //this.addChild(new Footer());
     }
 
     private static HTMLDiv title(String title) {
