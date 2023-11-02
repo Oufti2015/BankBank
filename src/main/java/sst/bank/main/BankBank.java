@@ -39,7 +39,7 @@ public class BankBank {
         }
     }
 
-    private static void readCategories() throws IOException {
+    public static void readCategories() throws IOException {
         //    CategoriesBuilder categoriesBuilder = new CategoriesBuilder();
         //    DataRepository.me().addCategories(categoriesBuilder.build());
 

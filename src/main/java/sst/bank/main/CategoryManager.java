@@ -12,18 +12,26 @@ import java.net.URL;
 
 @Log4j2
 public class CategoryManager extends Application {
-        @Override
-        public void start(Stage primaryStage) throws Exception {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        URL fxml = CategoryManager.class.getResource("/categories.fxml");
+        loader.setLocation(fxml);
 
-                FXMLLoader loader = new FXMLLoader();
-                URL fxml = CategoryManager.class.getResource("/licenses.fxml");
-                loader.setLocation(fxml);
+        Parent root = loader.load();
+        CategoryManagerController controller = loader.getController();
+        controller.setPrimaryStage(primaryStage);
 
-                Parent root = loader.load();
-                CategoryManagerController controller = loader.getController();
-                controller.setPrimaryStage(primaryStage);
-                primaryStage.setTitle("Category Manager");
-                primaryStage.setScene(new Scene(root, 1920, 1080));
-                primaryStage.setMaximized(true);
-        }
+        primaryStage.setTitle("Category Manager");
+        primaryStage.setScene(new Scene(root, (1920 / 3) * 2, 540));
+        primaryStage.setMaximized(false);
+        primaryStage.show();
+        log.info("Ready !");
+    }
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        BankBank.readCategories();
+    }
 }

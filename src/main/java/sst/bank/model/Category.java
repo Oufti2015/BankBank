@@ -1,13 +1,11 @@
 package sst.bank.model;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@ToString(exclude = {"criteria"})
 public class Category implements Comparable<Category> {
     public static final String CREDIT = "Crédits";
     public static final String ASSURANCES = "Assurances";
@@ -55,5 +53,10 @@ public class Category implements Comparable<Category> {
 
     public Double budget(int month) {
         return budget[month];
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
