@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
+import sst.bank.gson.conv.GsonLocalDate;
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Criteria;
@@ -20,10 +20,11 @@ import sst.bank.model.repo.DataRepository;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 
 @Log4j2
 public class CategoryManagerController {
-    private Stage primaryStage;
+    public static final String NO_CATEGORY_SELECTED = "No category selected...";
     @FXML
     private ComboBox<Category> categoryComboBox;
     @FXML
@@ -63,11 +64,6 @@ public class CategoryManagerController {
     @FXML
     private TextField categoryNameTextField;
 
-
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
     @FXML
     public void initialize() {
         log.info("[CategoryManagerController.initialize]");
@@ -90,18 +86,18 @@ public class CategoryManagerController {
 
         final Double[] budget = category.getBudget();
         int i = 0;
-        januaryBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        februaryBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        marchBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        aprilBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        mayBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        juneBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        julyBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        augustBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        septemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        octoberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        novemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i++]));
-        decemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE, budget[i]));
+        januaryBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        februaryBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        marchBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        aprilBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        mayBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        juneBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        julyBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        augustBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        septemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        octoberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        novemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i++]));
+        decemberBudget.setText(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget[i]));
 
         priorityTextField.setText(category.getPriority().toString());
         incomeRadioButton.setSelected(category.getIncome());
@@ -117,7 +113,7 @@ public class CategoryManagerController {
         boolean error = false;
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            log.error("No category selected...");
+            log.error(NO_CATEGORY_SELECTED);
             error = true;
         }
         final String criteriaName = criteriaNameTextField.getText();
@@ -141,7 +137,7 @@ public class CategoryManagerController {
     public void applyBudgetAction() {
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            log.error("No category selected...");
+            log.error(NO_CATEGORY_SELECTED);
         } else {
             Double[] budget = category.getBudget();
             if (budget == null) {
@@ -176,7 +172,7 @@ public class CategoryManagerController {
         boolean error = false;
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            log.error("No category selected...");
+            log.error(NO_CATEGORY_SELECTED);
         } else {
             final String name = categoryNameTextField.getText();
             if (Strings.isNullOrEmpty(name)) {
@@ -204,7 +200,7 @@ public class CategoryManagerController {
 
         CategoryRepository repo = new CategoryRepository(DataRepository.me().categories());
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new GsonLocalDate()).create();
         String json = gson.toJson(repo);
         try (PrintWriter out = new PrintWriter(BankBankConstants.JSON_FILE)) {
             out.println(json);

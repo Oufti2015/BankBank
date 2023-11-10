@@ -3,12 +3,12 @@ package sst.bank.report.html;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
-import sst.common.html.*;
+import sst.common.html.HTML;
+import sst.common.html.HTMLBody;
+import sst.common.html.HTMLDiv;
+import sst.common.html.HTMLHeader;
 import sst.common.html.head.HTMLHead;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.List;
 
 public class OperationsByCategory extends HTML {
@@ -34,7 +34,7 @@ public class OperationsByCategory extends HTML {
                 .filter(operation -> category.equals(operation.getCategory()))
                 .toList();
 
-        div.addChild(new OperationsTable(Collections.singletonList(category), operations));
+        div.addChild(new OperationsTable(operations));
 
         div = new HTMLDiv();
         div.classId("centered-div");

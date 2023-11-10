@@ -1,9 +1,11 @@
 package sst.bank.main;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.extern.log4j.Log4j2;
 import sst.bank.categories.CategoriesDispatcher;
 import sst.bank.csv.OperationFileReader;
+import sst.bank.gson.conv.GsonLocalDate;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.CategoryRepository;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 
 @Log4j2
@@ -43,9 +46,10 @@ public class BankBank {
         //    CategoriesBuilder categoriesBuilder = new CategoriesBuilder();
         //    DataRepository.me().addCategories(categoriesBuilder.build());
 
-        CategoryRepository repo = new Gson().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
+        CategoryRepository repo = gsonEngine().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
         repo.calculateEpargne();
         DataRepository.me().addCategories(repo.getCategories());
+
         log.info(String.format("%4d categories loaded.", DataRepository.me().categories().size()));
     }
 
@@ -95,5 +99,11 @@ public class BankBank {
         try (OutputFile outputFile = new OutputFile(file)) {
             outputFile.println(html.toString());
         }
+    }
+
+    public static Gson gsonEngine() {
+        final GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(LocalDate.class, new GsonLocalDate());
+        return builder.create();
     }
 }

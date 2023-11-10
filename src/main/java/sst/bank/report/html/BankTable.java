@@ -17,17 +17,6 @@ public class BankTable extends HTMLTable {
     private final List<Operation> operations;
     private Double[][] array;
     private final Double[] totalArray = new Double[12];
-    private boolean debug = false;
-
-
-    public BankTable(List<Category> categories, List<Operation> operations, boolean debug) {
-        super();
-        this.categories = categories;
-        this.operations = operations;
-        this.debug = debug;
-        createArray();
-        createTable();
-    }
 
     public BankTable(List<Category> categories, List<Operation> operations) {
         super();
@@ -49,12 +38,12 @@ public class BankTable extends HTMLTable {
     }
 
     private Double sum(Category category, int month) {
-        return savingOrNot(category, operations
+        return operations
                 .stream()
                 .filter(operation -> operation.getCategory().equals(category))
                 .filter(operation -> operation.getExecutionDate().getMonthValue() == month)
                 .mapToDouble(Operation::getAmount)
-                .sum());
+                .sum();
     }
 
     private void createTable() {
@@ -64,46 +53,43 @@ public class BankTable extends HTMLTable {
 
         int i = 0;
         for (Category category : categories.stream().sorted().toList()) {
-            String categoryBudgetString = category.getName();
-
             HTMLTableRow htmlTableRow = this.newRow();
             HTMLHyperlinks link = new HTMLHyperlinks();
             link.href(String.format("%s%s%s.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName()));
             link.textContent(category.getName());
             htmlTableRow.newCell().addChild(link);
-            Double total = 0.0;
+            double total = 0.0;
             for (int month = 0; month < 12; month++) {
-                final Double amount = array[i][month];
-                link = new HTMLHyperlinks();
-                link.href(String.format("%s%s%s_%d.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName(), month + 1));
-                link.textContent(String.format(BankBankConstants.FORMAT_DOUBLE, amount));
-                htmlTableRow.newCell().addChild(link);
-                final Double budget = category.budget(month);
-                final HTMLTableCell cell = htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, budget));
-                if (Boolean.FALSE.equals(category.getSavings())) {
-                    if (amount < budget) {
-                        cell.id("negative");
-                    }
-                } else {
-                    if (amount > budget) {
-                        cell.id("negative");
-                    }
-                }
-
-                total += amount;
-
-                categoryBudgetString = String.format("%s, %d.00", categoryBudgetString, amount.intValue());
+                total = byMonth(category, i, month, htmlTableRow, total);
             }
-            categoryBudgetString += ")";
-
-            if (debug) {
-                log.debug(String.format("%,.2f : %s", (total / 9.00), categoryBudgetString));
-            }
-            htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, total));
+            htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, total));
 
             i++;
         }
         createFooter(this, array);
+    }
+
+    private double byMonth(Category category, int i, int month, HTMLTableRow htmlTableRow, double total) {
+        HTMLHyperlinks link;
+        final Double amount = array[i][month];
+        link = new HTMLHyperlinks();
+        link.href(String.format("%s%s%s_%d.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName(), month + 1));
+        link.textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, amount));
+        htmlTableRow.newCell().addChild(link);
+        final Double budget = category.budget(month);
+        final HTMLTableCell cell = htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget));
+        if (Boolean.FALSE.equals(category.getSavings())) {
+            if (amount < budget) {
+                cell.id("negative");
+            }
+        } else {
+            if (amount > budget) {
+                cell.id("negative");
+            }
+        }
+
+        total += amount;
+        return total;
     }
 
     private static void header(HTMLTableHeaderRow row) {
@@ -122,11 +108,6 @@ public class BankTable extends HTMLTable {
         }
     }
 
-    public static Double savingOrNot(Category category, Double aDouble) {
-        // return (category.getSavings() && aDouble != 0.00) ? aDouble * -1.0 : aDouble;
-        return aDouble;
-    }
-
     private void createFooter(HTMLTable table, Double[][] array) {
         HTMLTableFooterRow row = table.newFooter();
         row.newCell();
@@ -137,14 +118,14 @@ public class BankTable extends HTMLTable {
             for (int i = 0; i < categories.size(); i++) {
                 total += array[i][month];
             }
-            row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, total));
+            row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, total));
             int finalMonth = month;
-            row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, categories.stream().mapToDouble(c -> c.budget(finalMonth)).sum()));
+            row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, categories.stream().mapToDouble(c -> c.budget(finalMonth)).sum()));
 
             fullTotal += total;
             totalArray[month] = total;
         }
-        row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE, fullTotal));
+        row.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, fullTotal));
     }
 
     public Double[] totals() {

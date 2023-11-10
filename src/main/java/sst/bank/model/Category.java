@@ -55,6 +55,7 @@ public class Category implements Comparable<Category> {
         return budget[month];
     }
 
+
     @Override
     public String toString() {
         return name;

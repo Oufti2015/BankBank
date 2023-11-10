@@ -6,6 +6,7 @@ public enum CriteriaField {
     COMMUNICATION("Communication"),
     DETAIL("Detail"),
     TRANSACTION_TYPE("Transaction Type"),
+    VALUE_DATE("Value Date"),
     ALL("All");
 
     private final String name;

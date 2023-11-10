@@ -17,9 +17,6 @@ public class SummaryTable extends HTMLTable {
         this.expensesArray = expensesArray;
         this.savingArray = savingArray;
 
-        for (int i = 0; i < savingArray.length; i++) {
-            savingArray[i] = savingArray[i] * -1.0;
-        }
         createTable();
     }
 
@@ -40,18 +37,18 @@ public class SummaryTable extends HTMLTable {
     }
 
     private void footer() {
-        Double total;
+        double total;
         total = 0.00;
         HTMLTableFooterRow footer = this.newFooter();
         footer.newCell().textContent("Total");
         for (int i = 0; i < 12; i++) {
             double sum = incomeArray[i] + expensesArray[i] + savingArray[i];
-            footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, sum));
-            footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, 0.00));
+            footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, sum));
+            footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, 0.00));
             total += sum;
         }
-        footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, total));
-        footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, 0.00));
+        footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, total));
+        footer.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, 0.00));
     }
 
 
@@ -59,16 +56,16 @@ public class SummaryTable extends HTMLTable {
         HTMLTableRow htmlTableRow = this.newRow();
         htmlTableRow.newCell().textContent(title);
         Double total = 0.00;
-        Double totalBudget = 0.00;
+        double totalBudget = 0.00;
         for (int i = 0; i < 12; i++) {
-            htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, input[i]));
+            htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, input[i]));
             int finalI = i;
             final double budget = categories.stream().mapToDouble(c -> c.budget(finalI)).sum();
-            htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, budget));
+            htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget));
             total += input[i];
             totalBudget += budget;
         }
-        htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, total));
-        htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE, totalBudget));
+        htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, total));
+        htmlTableRow.newCell().textContent(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, totalBudget));
     }
 }

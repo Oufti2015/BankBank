@@ -4,8 +4,7 @@
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{dd/MM/yyyy HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
         </Console>
-        <RollingFile name="RollingFile" fileName="c:/logs/ClubDogLicences/ClubDogLicences.log"
-                     filePattern="c:/logs/ClubDogLicences/ClubDogLicences-%d{yyyy-dd-MM}-%i.log">
+        <RollingFile name="RollingFileBank" filePattern="c:/logs/BankBank-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} %m%n</Pattern>
             </PatternLayout>
@@ -13,15 +12,15 @@
                 <OnStartupTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="1 MB"/>
             </Policies>
-            <DefaultRolloverStrategy max="20" compressionLevel="0"/>
+            <DirectWriteRolloverStrategy/>
         </RollingFile>
     </Appenders>
     <Loggers>
         <Logger name="com.mkyong" level="debug" additivity="false">
-            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="RollingFileBank"/>
         </Logger>
         <Root level="info">
-            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="RollingFileBank"/>
             <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>
