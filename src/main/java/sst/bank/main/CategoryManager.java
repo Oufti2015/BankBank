@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
-import sst.bank.controllers.CategoryManagerController;
 
 import java.net.URL;
 
@@ -19,11 +18,10 @@ public class CategoryManager extends Application {
         loader.setLocation(fxml);
 
         Parent root = loader.load();
-        CategoryManagerController controller = loader.getController();
-        controller.setPrimaryStage(primaryStage);
 
         primaryStage.setTitle("Category Manager");
-        primaryStage.setScene(new Scene(root, (1920 / 3) * 2, 540));
+        final int v = (1920 / 3) * 2;
+        primaryStage.setScene(new Scene(root, v, 540));
         primaryStage.setMaximized(false);
         primaryStage.show();
         log.info("Ready !");
