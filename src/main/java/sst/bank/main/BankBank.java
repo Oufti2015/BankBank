@@ -10,10 +10,7 @@ import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.DataRepository;
-import sst.bank.report.html.IndexHtml;
-import sst.bank.report.html.OperationsByCategory;
-import sst.bank.report.html.OperationsByCategoryAndMonth;
-import sst.bank.report.html.OperationsByMonth;
+import sst.bank.report.html.*;
 import sst.common.file.output.OutputFile;
 import sst.common.html.HTML;
 
@@ -113,6 +110,8 @@ public class BankBank {
             HTML html = new OperationsByMonth(month);
             save(html, new File(String.format("%s%s\\%d.html", BankBankConstants.HTML_FOLDER, File.separator, month)));
         }
+        Budget budget = new Budget();
+        save(budget, new File(BankBankConstants.HTML_FOLDER + File.separator + "budget.html"));
     }
 
     private static void save(HTML html, File file) throws IOException {
