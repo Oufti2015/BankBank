@@ -28,14 +28,20 @@ import java.util.List;
 public class BankBank {
 
 
+    public static final String LINE_STRING = "----------------------------------------------------------------";
+
     public static void main(String[] args) {
         try {
+            log.info(LINE_STRING);
+
             readCategories();
             readOperations(args[0]);
             dispatchCategories();
             listOperations();
             summary();
             report();
+
+            log.info(LINE_STRING);
         } catch (IOException e) {
             log.error("ERROR", e);
             System.exit(-1);
@@ -70,11 +76,26 @@ public class BankBank {
     }
 
     private static void summary() {
-        final double countDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory() != null).count();
-        final double countNotDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory() == null).count();
+        final long countDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory() != null).count();
+        final long countNotDone = DataRepository.me().operations().stream().filter(operation -> operation.getCategory().getName().equals(Category.UNKNOWN)).count();
 
-        final double percentage = (countDone / DataRepository.me().operations().size()) * 100;
-        log.info(String.format("%,.0f done %,.0f not done (%,.2f %%)", countDone, countNotDone, percentage));
+        log.info(String.format("%4d operations with category", countDone));
+        log.info(String.format("%4d operations on unknown category", countNotDone));
+        log.info(LINE_STRING);
+        for (int month = 1; month <= 12; month++) {
+            int finalMonth = month;
+            final long count = DataRepository.me().operations().stream()
+                    .filter(o -> o.getExecutionDate().getMonthValue() == finalMonth)
+                    .count();
+            log.info(String.format("%16s : %3d operations", BankBankConstants.MONTHS[month - 1], count));
+        }
+        log.info(LINE_STRING);
+        for (Category category : DataRepository.me().categories()) {
+            final long count = DataRepository.me().operations().stream()
+                    .filter(o -> o.getCategory().equals(category))
+                    .count();
+            log.info(String.format("%16s : %3d operations", category.getName(), count));
+        }
     }
 
     private static void report() throws IOException {

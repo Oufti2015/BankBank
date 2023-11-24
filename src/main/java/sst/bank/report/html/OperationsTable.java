@@ -30,6 +30,7 @@ public class OperationsTable extends HTMLTable {
             row.newHead(s);
         }
 
+        DetailsPrinter dp = new DetailsPrinter();
         for (Operation operation : operations) {
             HTMLTableRow htmlTableRow = this.newRow();
             htmlTableRow.newCell(operation.getExecutionDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
@@ -42,7 +43,7 @@ public class OperationsTable extends HTMLTable {
             htmlTableRow.newCell(operation.getCounterpartyAccountNumber());
             htmlTableRow.newCell(operation.getCounterpartyName());
             htmlTableRow.newCell(operation.getCommunication());
-            htmlTableRow.newCell(operation.getDetails());
+            htmlTableRow.newCell(dp.format(operation.getDetails()));
         }
     }
 }
