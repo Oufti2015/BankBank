@@ -7,6 +7,7 @@ import sst.bank.model.repo.DataRepository;
 import sst.common.html.*;
 import sst.common.html.head.HTMLHead;
 
+import java.io.File;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Comparator;
@@ -24,7 +25,7 @@ public class IndexHtml extends HTML {
 
     private void create() {
         HTMLHead head = this.head();
-        head.css("bankbank.css");
+        head.css("html" + File.separator + BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");
