@@ -247,7 +247,7 @@ public class CategoriesBuilder {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(repo);
-        try (PrintWriter out = new PrintWriter(BankBankConstants.JSON_FILE)) {
+        try (PrintWriter out = new PrintWriter(BankBankConstants.CATEGORIES_FILE)) {
             out.println(json);
         }
     }

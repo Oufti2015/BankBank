@@ -1,5 +1,6 @@
 package sst.bank.report.html;
 
+import sst.bank.main.BankBankConstants;
 import sst.bank.model.repo.DataRepository;
 import sst.common.html.HTML;
 import sst.common.html.HTMLBody;
@@ -16,7 +17,7 @@ public class Budget extends HTML {
 
     private void create() {
         HTMLHead head = this.head();
-        head.css("bankbank.css");
+        head.css(BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");

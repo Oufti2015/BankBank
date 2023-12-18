@@ -22,7 +22,7 @@ public class OperationsByMonth extends HTML {
 
     private void create() {
         HTMLHead head = this.head();
-        head.css("bankbank.css");
+        head.css(BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");

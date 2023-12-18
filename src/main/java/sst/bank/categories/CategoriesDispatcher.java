@@ -42,6 +42,9 @@ public class CategoriesDispatcher {
             if (result && operation.getCriteria() == null) {
                 operation.setCriteria(criteria);
             }
+            if (result && category.getHook() != null) {
+                category.getHook().process(operation);
+            }
             if (result) {
                 break;
             }

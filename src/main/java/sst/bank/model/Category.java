@@ -1,12 +1,15 @@
 package sst.bank.model;
 
+import com.google.gson.annotations.Expose;
 import lombok.Data;
+import sst.bank.categories.CategoryHook;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Category implements Comparable<Category> {
+public class Category implements Comparable<Category>, Serializable {
     public static final String CREDIT = "Crédits";
     public static final String ASSURANCES = "Assurances";
     public static final String EPARGNE = "Epargne";
@@ -34,13 +37,21 @@ public class Category implements Comparable<Category> {
     public static final String OTHER_INCOME = "Autres Recettes";
     public static final String UNKNOWN = "Inconnu";
 
+    @Expose
     private Integer priority = 50;
+    @Expose
     private String name;
+    @Expose
     private Boolean income = false;
+    @Expose
     private Boolean savings = false;
+    @Expose
     private final List<Criteria> criteria = new ArrayList<>();
 
+    @Expose
     private Double[] budget = new Double[12];
+
+    private CategoryHook hook = null;
 
     @Override
     public int compareTo(Category o) {

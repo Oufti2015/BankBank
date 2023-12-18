@@ -200,13 +200,13 @@ public class CategoryManagerController {
 
         CategoryRepository repo = new CategoryRepository(DataRepository.me().categories());
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new GsonLocalDate()).create();
+        Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new GsonLocalDate()).excludeFieldsWithoutExposeAnnotation().create();
         String json = gson.toJson(repo);
-        try (PrintWriter out = new PrintWriter(BankBankConstants.JSON_FILE)) {
+        try (PrintWriter out = new PrintWriter(BankBankConstants.CATEGORIES_FILE)) {
             out.println(json);
-            log.info("File saved to " + BankBankConstants.JSON_FILE);
+            log.info("File saved to " + BankBankConstants.CATEGORIES_FILE);
         } catch (FileNotFoundException e) {
-            log.error("Cannot write to " + BankBankConstants.JSON_FILE, e);
+            log.error("Cannot write to " + BankBankConstants.CATEGORIES_FILE, e);
         }
     }
 }

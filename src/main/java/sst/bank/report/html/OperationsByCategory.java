@@ -1,5 +1,6 @@
 package sst.bank.report.html;
 
+import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
@@ -22,7 +23,7 @@ public class OperationsByCategory extends HTML {
 
     private void create() {
         HTMLHead head = this.head();
-        head.css("bankbank.css");
+        head.css(BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");

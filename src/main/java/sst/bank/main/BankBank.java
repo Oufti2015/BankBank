@@ -3,19 +3,23 @@ package sst.bank.main;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.extern.log4j.Log4j2;
+import sst.bank.categories.AmazonHook;
 import sst.bank.categories.CategoriesDispatcher;
 import sst.bank.csv.OperationFileReader;
 import sst.bank.gson.conv.GsonLocalDate;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.CategoryRepository;
+import sst.bank.model.repo.CommentRepository;
 import sst.bank.model.repo.DataRepository;
 import sst.bank.report.html.*;
 import sst.common.file.output.OutputFile;
 import sst.common.html.HTML;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -32,12 +36,13 @@ public class BankBank {
             log.info(LINE_STRING);
 
             readCategories();
+            readComments();
             readOperations(args[0]);
             dispatchCategories();
             listOperations();
             summary();
             report();
-
+            writeComments();
             log.info(LINE_STRING);
         } catch (IOException e) {
             log.error("ERROR", e);
@@ -46,14 +51,24 @@ public class BankBank {
     }
 
     public static void readCategories() throws IOException {
-        //    CategoriesBuilder categoriesBuilder = new CategoriesBuilder();
-        //    DataRepository.me().addCategories(categoriesBuilder.build());
-
-        CategoryRepository repo = gsonEngine().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.JSON_FILE))), CategoryRepository.class);
+        CategoryRepository repo = gsonEngine().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.CATEGORIES_FILE))), CategoryRepository.class);
         repo.calculateEpargne();
         DataRepository.me().addCategories(repo.getCategories());
 
+        for (Category category : DataRepository.me().categories()) {
+            if ("Amazon".equals(category.getName())) {
+                category.setHook(new AmazonHook());
+            }
+        }
+
         log.info(String.format("%4d categories loaded.", DataRepository.me().categories().size()));
+    }
+
+    public static void readComments() throws IOException {
+        CommentRepository repo = gsonEngine().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.COMMENTS_FILE))), CommentRepository.class);
+        DataRepository.me().addComments(repo.getComments());
+
+        log.info(String.format("%4d comments loaded.", DataRepository.me().comments().size()));
     }
 
     private static void readOperations(String filename) throws IOException {
@@ -97,7 +112,7 @@ public class BankBank {
 
     private static void report() throws IOException {
         IndexHtml indexHtml = new IndexHtml();
-        save(indexHtml, new File(BankBankConstants.HTML_FOLDER + File.separator + "index.html"));
+        save(indexHtml, new File(BankBankConstants.BANK_FOLDER + File.separator + "index.html"));
         for (Category category : DataRepository.me().categories()) {
             HTML html = new OperationsByCategory(category);
             save(html, new File(String.format("%s%s%s.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName())));
@@ -125,5 +140,18 @@ public class BankBank {
         final GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(LocalDate.class, new GsonLocalDate());
         return builder.create();
+    }
+
+    private static void writeComments() {
+        CommentRepository repo = new CommentRepository(DataRepository.me().comments());
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new GsonLocalDate()).excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(repo);
+        try (PrintWriter out = new PrintWriter(BankBankConstants.COMMENTS_FILE)) {
+            out.println(json);
+            log.info("File saved to " + BankBankConstants.COMMENTS_FILE);
+        } catch (FileNotFoundException e) {
+            log.error("Cannot write to " + BankBankConstants.COMMENTS_FILE, e);
+        }
     }
 }
