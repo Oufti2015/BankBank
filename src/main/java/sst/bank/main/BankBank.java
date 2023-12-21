@@ -112,7 +112,7 @@ public class BankBank {
 
     private static void report() throws IOException {
         IndexHtml indexHtml = new IndexHtml();
-        save(indexHtml, new File(BankBankConstants.BANK_FOLDER + File.separator + "index.html"));
+        save(indexHtml, new File(BankBankConstants.OUTPUT_FOLDER + File.separator + "index.html"));
         for (Category category : DataRepository.me().categories()) {
             HTML html = new OperationsByCategory(category);
             save(html, new File(String.format("%s%s%s.html", BankBankConstants.HTML_FOLDER, File.separator, category.getName())));
