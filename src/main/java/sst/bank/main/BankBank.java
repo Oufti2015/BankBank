@@ -16,13 +16,11 @@ import sst.bank.report.html.*;
 import sst.common.file.output.OutputFile;
 import sst.common.html.HTML;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 @Log4j2
@@ -32,22 +30,38 @@ public class BankBank {
     public static final String LINE_STRING = "----------------------------------------------------------------";
 
     public static void main(String[] args) {
-        try {
-            log.info(LINE_STRING);
+        if (args.length == 2) {
+            try {
+                log.info(LINE_STRING);
 
-            readCategories();
-            readComments();
-            readOperations(args[0]);
-            dispatchCategories();
-            listOperations();
-            summary();
-            report();
-            writeComments();
-            log.info(LINE_STRING);
-        } catch (IOException e) {
-            log.error("ERROR", e);
-            System.exit(-1);
+                readBeneficiaries();
+                readCategories();
+                readComments();
+                readOperations(args[0]); // 2024.csv
+                readOperations(args[1]); // end2023.csv
+                dispatchCategories();
+                assignMonths();
+                listOperations();
+                summary();
+                report();
+                writeComments();
+                log.info(LINE_STRING);
+            } catch (IOException e) {
+                log.error("ERROR", e);
+                System.exit(-1);
+            }
+        } else {
+            log.warn("USAGE: BankBank C:\\zt974\\bank\\input\\2024.csv C:\\zt974\\bank\\input\\end2023.csv");
+            System.exit(-2);
         }
+    }
+
+    private static void readBeneficiaries() throws IOException {
+        try (InputStream input = new FileInputStream(BankBankConstants.BENEF_FILE)) {
+            // load a properties file
+            DataRepository.me().beneficiaries().load(input);
+        }
+        log.info(String.format("%4d beneficiaries loaded.", DataRepository.me().beneficiaries().size()));
     }
 
     public static void readCategories() throws IOException {
@@ -78,6 +92,23 @@ public class BankBank {
         log.info(String.format("%4d operations loaded.", DataRepository.me().operations().size()));
     }
 
+    private static void assignMonths() {
+        List<Operation> operations = DataRepository.me().operations();
+        List<Operation> operationsSorted = operations.stream()
+                //      .sorted(Comparator.comparing(Operation::getExecutionDate))
+                .sorted()
+                .toList();
+
+        int month = 1;
+        for (Operation op : operationsSorted) {
+            if (op.getCategory().getName().equals("Salaire")) {
+                month = op.getExecutionDate().getMonthValue();
+                month = month == 12 ? 1 : month + 1;
+            }
+            op.setMonth(Month.of(month));
+        }
+    }
+
     private static void dispatchCategories() {
         CategoriesDispatcher dispatcher = new CategoriesDispatcher();
         dispatcher.dispatch(DataRepository.me().operations());
@@ -95,9 +126,9 @@ public class BankBank {
         log.info(String.format("%4d operations on unknown category", countNotDone));
         log.info(LINE_STRING);
         for (int month = 1; month <= 12; month++) {
-            int finalMonth = month;
+            Month finalMonth = Month.of(month);
             final long count = DataRepository.me().operations().stream()
-                    .filter(o -> o.getExecutionDate().getMonthValue() == finalMonth)
+                    .filter(o -> o.getMonth().equals(finalMonth))
                     .count();
             log.info(String.format("%16s : %3d operations", BankBankConstants.MONTHS[month - 1], count));
         }

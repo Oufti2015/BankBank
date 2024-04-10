@@ -27,6 +27,8 @@ public class IndexHtml extends HTML {
         HTMLHead head = this.head();
         head.css("html" + File.separator + BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
+        body.addChild(new Navigation(Navigation.Pages.INDEX));
+        body.addChild(new HTMLParagraph());
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");
         body.addChild(div);

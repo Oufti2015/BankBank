@@ -4,10 +4,11 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 @Data
 @ToString(exclude = {"valueDate", "currency", "accountNumber", "status", "reasonForRefusal"})
-public class Operation {
+public class Operation implements Comparable<Operation> {
     private String id;
     private LocalDate executionDate;
     private LocalDate valueDate;
@@ -24,4 +25,15 @@ public class Operation {
 
     private Category category;
     private Criteria criteria;
+
+    private Month month;
+
+
+    @Override
+    public int compareTo(Operation o) {
+        if (this.getExecutionDate().isEqual(o.getExecutionDate())) {
+            return this.getValueDate().compareTo(o.getValueDate());
+        }
+        return this.getExecutionDate().compareTo(o.getExecutionDate());
+    }
 }

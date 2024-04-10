@@ -9,6 +9,7 @@ import sst.common.html.HTMLDiv;
 import sst.common.html.HTMLHeader;
 import sst.common.html.head.HTMLHead;
 
+import java.time.Month;
 import java.util.List;
 
 public class OperationsByMonth extends HTML {
@@ -29,7 +30,7 @@ public class OperationsByMonth extends HTML {
         body.addChild(div);
 
         final List<Operation> operations = DataRepository.me().operations().stream()
-                .filter(operation -> operation.getExecutionDate().getMonthValue() == month)
+                .filter(operation -> operation.getMonth().equals(Month.of(month)))
                 .toList();
 
         final double sum = operations.stream().mapToDouble(Operation::getAmount).sum();

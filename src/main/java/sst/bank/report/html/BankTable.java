@@ -8,11 +8,14 @@ import sst.common.html.HTMLHyperlinks;
 import sst.common.html.table.*;
 
 import java.io.File;
+import java.time.Month;
 import java.util.List;
 
 @Log4j2
 public class BankTable extends HTMLTable {
 
+    public static final String NEGATIVE = "negative";
+    public static final String POSITIVE = "positive";
     private final List<Category> categories;
     private final List<Operation> operations;
     private Double[][] array;
@@ -41,7 +44,7 @@ public class BankTable extends HTMLTable {
         return operations
                 .stream()
                 .filter(operation -> operation.getCategory().equals(category))
-                .filter(operation -> operation.getExecutionDate().getMonthValue() == month)
+                .filter(operation -> operation.getMonth().equals(Month.of(month)))
                 .mapToDouble(Operation::getAmount)
                 .sum();
     }
@@ -80,11 +83,15 @@ public class BankTable extends HTMLTable {
         final HTMLTableCell cell = htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_TABLE, budget));
         if (Boolean.FALSE.equals(category.getSavings())) {
             if (amount < budget) {
-                cell.id("negative");
+                cell.id(NEGATIVE);
+            } else {
+                cell.id(POSITIVE);
             }
         } else {
             if (amount > budget) {
-                cell.id("negative");
+                cell.id(NEGATIVE);
+            } else {
+                cell.id(POSITIVE);
             }
         }
 

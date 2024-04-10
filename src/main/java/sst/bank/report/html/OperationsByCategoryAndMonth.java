@@ -10,6 +10,7 @@ import sst.common.html.HTMLDiv;
 import sst.common.html.HTMLHeader;
 import sst.common.html.head.HTMLHead;
 
+import java.time.Month;
 import java.util.List;
 
 public class OperationsByCategoryAndMonth extends HTML {
@@ -35,7 +36,7 @@ public class OperationsByCategoryAndMonth extends HTML {
 
         List<Operation> operations = DataRepository.me().operations().stream()
                 .filter(operation -> category.equals(operation.getCategory()))
-                .filter(operation -> operation.getExecutionDate().getMonthValue() == month)
+                .filter(operation -> operation.getMonth().equals(Month.of(month)))
                 .toList();
 
         div.addChild(new OperationsTable(operations));
