@@ -4,6 +4,8 @@ import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
+import sst.bank.report.tables.BankTable;
+import sst.bank.report.tables.OperationsTable;
 import sst.common.html.HTML;
 import sst.common.html.HTMLBody;
 import sst.common.html.HTMLDiv;
@@ -42,7 +44,6 @@ public class OperationsByCategory extends HTML {
         body.addChild(div);
 
         div.addChild(new BankTable(List.of(category), operations));
-        //this.addChild(new Footer());
     }
 
     private static HTMLDiv title(String title) {

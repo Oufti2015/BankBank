@@ -4,6 +4,7 @@ import java.io.File;
 
 public class BankBankConstants {
     public static final String BANKBANK_CSS = "bankbank.css";
+    public static final String BANKBANK_2_CSS = "BankBank2.css";
 
     private BankBankConstants() {
     }
@@ -22,5 +23,6 @@ public class BankBankConstants {
     public static final String[] MONTHS = {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre", "Total"};
 
     public static final String FORMAT_DOUBLE_TABLE = "%,.0f";
+    public static final String FORMAT_INTEGER_TABLE = "%d €";
     public static final String FORMAT_DOUBLE_OPERATION = "%,.2f";
 }

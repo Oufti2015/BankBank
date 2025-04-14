@@ -1,4 +1,4 @@
-package sst.bank.report.html;
+package sst.bank.report.tables;
 
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;

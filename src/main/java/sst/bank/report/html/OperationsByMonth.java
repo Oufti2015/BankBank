@@ -3,6 +3,8 @@ package sst.bank.report.html;
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
+import sst.bank.report.tables.BankTable;
+import sst.bank.report.tables.OperationsTable;
 import sst.common.html.HTML;
 import sst.common.html.HTMLBody;
 import sst.common.html.HTMLDiv;

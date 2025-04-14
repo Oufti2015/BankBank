@@ -13,6 +13,8 @@ import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.CommentRepository;
 import sst.bank.model.repo.DataRepository;
 import sst.bank.report.html.*;
+import sst.bank.report.tab.BudgetFamilialReport;
+import sst.bank.report.tab.BudgetReport;
 import sst.common.file.output.OutputFile;
 import sst.common.html.HTML;
 
@@ -101,7 +103,7 @@ public class BankBank {
 
         int month = 1;
         for (Operation op : operationsSorted) {
-            if (op.getCategory().getName().equals("Salaire")) {
+            if (op.getCategory().getName().equals("Salaire") && op.getAmount() > 3000.0) {
                 month = op.getExecutionDate().getMonthValue();
                 month = month == 12 ? 1 : month + 1;
             }
@@ -155,9 +157,14 @@ public class BankBank {
         for (int month = 1; month <= 12; month++) {
             HTML html = new OperationsByMonth(month);
             save(html, new File(String.format("%s%s\\%d.html", BankBankConstants.HTML_FOLDER, File.separator, month)));
+            html = new MonthSummary(month);
+            save(html, new File(String.format("%s%s\\summary-%d.html", BankBankConstants.HTML_FOLDER, File.separator, month)));
         }
         Budget budget = new Budget();
         save(budget, new File(BankBankConstants.HTML_FOLDER + File.separator + "budget.html"));
+
+        new BudgetFamilialReport().report(BankBankConstants.BANK_FOLDER + File.separator + "BankBank.txt");
+        new BudgetReport().report(BankBankConstants.BANK_FOLDER + File.separator + "Budget.txt");
     }
 
     private static void save(HTML html, File file) throws IOException {
@@ -180,9 +187,9 @@ public class BankBank {
         String json = gson.toJson(repo);
         try (PrintWriter out = new PrintWriter(BankBankConstants.COMMENTS_FILE)) {
             out.println(json);
-            log.info("File saved to " + BankBankConstants.COMMENTS_FILE);
+            log.info("File saved to {}", BankBankConstants.COMMENTS_FILE);
         } catch (FileNotFoundException e) {
-            log.error("Cannot write to " + BankBankConstants.COMMENTS_FILE, e);
+            log.error("Cannot write to {}", BankBankConstants.COMMENTS_FILE, e);
         }
     }
 }

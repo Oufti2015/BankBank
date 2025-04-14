@@ -1,9 +1,10 @@
-package sst.bank.report.html;
+package sst.bank.report.tables;
 
 import com.google.common.base.Strings;
 import sst.bank.main.BankBankConstants;
 import sst.bank.model.Operation;
 import sst.bank.model.repo.DataRepository;
+import sst.bank.report.html.DetailsPrinter;
 import sst.common.html.table.HTMLTable;
 import sst.common.html.table.HTMLTableHeaderRow;
 import sst.common.html.table.HTMLTableRow;

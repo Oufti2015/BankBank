@@ -1,4 +1,4 @@
-package sst.bank.report.html;
+package sst.bank.report.tables;
 
 import lombok.extern.log4j.Log4j2;
 import sst.bank.main.BankBankConstants;
