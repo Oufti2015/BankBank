@@ -6,7 +6,7 @@
 
     <groupId>sst.bank</groupId>
     <artifactId>Bank</artifactId>
-    <version>2025.001</version>
+    <version>2025.002</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>

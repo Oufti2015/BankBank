@@ -37,6 +37,7 @@ public class BankBank {
                 log.info(LINE_STRING);
 
                 readBeneficiaries();
+                readOpCat();
                 readCategories();
                 readComments();
                 readOperations(args[0]); // 2024.csv
@@ -64,6 +65,14 @@ public class BankBank {
             DataRepository.me().beneficiaries().load(input);
         }
         log.info(String.format("%4d beneficiaries loaded.", DataRepository.me().beneficiaries().size()));
+    }
+
+    private static void readOpCat() throws IOException {
+        try (InputStream input = new FileInputStream(BankBankConstants.OP_CAT_FILE)) {
+            // load a properties file
+            DataRepository.me().operationsCategories().load(input);
+        }
+        log.info(String.format("%4d operations and categories links loaded.", DataRepository.me().operationsCategories().size()));
     }
 
     public static void readCategories() throws IOException {

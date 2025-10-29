@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 public class DataRepository {
@@ -28,6 +29,7 @@ public class DataRepository {
     private final List<Category> categories = new ArrayList<>();
     private final List<Comment> comments = new ArrayList<>();
     private final Properties benefiaries = new Properties();
+    private final Properties operationsCategories = new Properties();
 
     private DataRepository() {
     }
@@ -56,6 +58,10 @@ public class DataRepository {
         return categories;
     }
 
+    public Optional<Category> category(String name) {
+        return categories.stream().filter(category -> category.getName().equals(name)).findFirst();
+    }
+
     public void addComments(List<Comment> comments) {
         this.comments.addAll(comments);
     }
@@ -66,5 +72,9 @@ public class DataRepository {
 
     public Properties beneficiaries() {
         return benefiaries;
+    }
+
+    public Properties operationsCategories() {
+        return operationsCategories;
     }
 }
