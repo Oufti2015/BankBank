@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
+            <version>1.18.42</version>
             <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>sst.common.html</groupId>
             <artifactId>html</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
