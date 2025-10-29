@@ -14,7 +14,7 @@ import java.time.format.FormatStyle;
 import java.util.List;
 
 public class OperationsTable extends HTMLTable {
-    private static final String[] HEADERS = {/*"Id", */"Date d'Exécution", "Date valeur", "Catégorie", "Commentaire", "Montant", "Type de Transaction", "Contrepartie", "Communication", "Détails"};
+    private static final String[] HEADERS = {"Id", "Date d'Exécution", "Date valeur", "Catégorie", "Commentaire", "Montant", "Type de Transaction", "Contrepartie", "Communication", "Détails"};
     private final List<Operation> operations;
 
     public OperationsTable(List<Operation> operations) {
@@ -34,6 +34,7 @@ public class OperationsTable extends HTMLTable {
         DetailsPrinter dp = new DetailsPrinter();
         for (Operation operation : operations) {
             HTMLTableRow htmlTableRow = this.newRow();
+            htmlTableRow.newCell(Strings.isNullOrEmpty(operation.getId()) ? "---" : operation.getId());
             htmlTableRow.newCell(operation.getExecutionDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
             htmlTableRow.newCell(operation.getValueDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
             htmlTableRow.newCell(operation.getCategory().getName());

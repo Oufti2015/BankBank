@@ -132,14 +132,14 @@ public class BankBank {
             final long count = DataRepository.me().operations().stream()
                     .filter(o -> o.getMonth().equals(finalMonth))
                     .count();
-            log.info(String.format("%16s : %3d operations", BankBankConstants.MONTHS[month - 1], count));
+            log.info(String.format("%20s : %5d operations", BankBankConstants.MONTHS[month - 1], count));
         }
         log.info(LINE_STRING);
         for (Category category : DataRepository.me().categories()) {
             final long count = DataRepository.me().operations().stream()
                     .filter(o -> o.getCategory().equals(category))
                     .count();
-            log.info(String.format("%16s : %3d operations", category.getName(), count));
+            log.info(String.format("%20s : %5d operations", category.getName(), count));
         }
     }
 

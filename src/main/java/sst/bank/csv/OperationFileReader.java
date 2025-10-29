@@ -20,10 +20,6 @@ public class OperationFileReader {
 
     private final File inputFile;
 
-    public OperationFileReader(File inputFile) {
-        this.inputFile = inputFile;
-    }
-
     public OperationFileReader(String path) {
         this.inputFile = new File(path);
     }
@@ -55,7 +51,7 @@ public class OperationFileReader {
         operation.setId(lineInArray[i++]);
         operation.setExecutionDate(string2Date(lineInArray[i++]));
         operation.setValueDate(string2Date(lineInArray[i++]));
-        operation.setAmount(Double.parseDouble(lineInArray[i++]));
+        operation.setAmount(Double.parseDouble(lineInArray[i++].replace(",", ".")));
         operation.setCurrency(lineInArray[i++]);
         operation.setAccountNumber(lineInArray[i++]);
         operation.setTransactionType(lineInArray[i++]);
