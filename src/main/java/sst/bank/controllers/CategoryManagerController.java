@@ -15,7 +15,6 @@ import sst.bank.main.BankBankConstants;
 import sst.bank.model.Category;
 import sst.bank.model.Criteria;
 import sst.bank.model.CriteriaField;
-import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.DataRepository;
 
 import java.io.FileNotFoundException;
@@ -197,11 +196,8 @@ public class CategoryManagerController {
 
     @FXML
     private void saveAction() {
-
-        CategoryRepository repo = new CategoryRepository(DataRepository.me().categories());
-
         Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(LocalDate.class, new GsonLocalDate()).excludeFieldsWithoutExposeAnnotation().create();
-        String json = gson.toJson(repo);
+        String json = gson.toJson(DataRepository.me().categories());
         try (PrintWriter out = new PrintWriter(BankBankConstants.CATEGORIES_FILE)) {
             out.println(json);
             log.info("File saved to " + BankBankConstants.CATEGORIES_FILE);

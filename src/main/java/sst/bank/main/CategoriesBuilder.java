@@ -6,7 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import sst.bank.model.Category;
 import sst.bank.model.Criteria;
 import sst.bank.model.CriteriaField;
-import sst.bank.model.repo.CategoryRepository;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -243,10 +242,8 @@ public class CategoriesBuilder {
     }
 
     private void saveResult(List<Category> result) throws FileNotFoundException {
-        CategoryRepository repo = new CategoryRepository(result);
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(repo);
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(result);
         try (PrintWriter out = new PrintWriter(BankBankConstants.CATEGORIES_FILE)) {
             out.println(json);
         }

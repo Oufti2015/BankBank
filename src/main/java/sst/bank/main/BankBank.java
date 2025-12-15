@@ -1,5 +1,6 @@
 package sst.bank.main;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.extern.log4j.Log4j2;
@@ -9,7 +10,6 @@ import sst.bank.csv.OperationFileReader;
 import sst.bank.gson.conv.GsonLocalDate;
 import sst.bank.model.Category;
 import sst.bank.model.Operation;
-import sst.bank.model.repo.CategoryRepository;
 import sst.bank.model.repo.CommentRepository;
 import sst.bank.model.repo.DataRepository;
 import sst.bank.report.html.*;
@@ -76,9 +76,10 @@ public class BankBank {
     }
 
     public static void readCategories() throws IOException {
-        CategoryRepository repo = gsonEngine().fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.CATEGORIES_FILE))), CategoryRepository.class);
-        repo.calculateEpargne();
-        DataRepository.me().addCategories(repo.getCategories());
+        Gson gson = gsonEngine();
+        List<Category> categories = gson.fromJson(new String(Files.readAllBytes(Paths.get(BankBankConstants.CATEGORIES_FILE))), new TypeToken<List<Category>>(){}.getType());
+        calculateEpargne(categories);
+        DataRepository.me().addCategories(categories);
 
         for (Category category : DataRepository.me().categories()) {
             if ("Amazon".equals(category.getName())) {
@@ -87,6 +88,24 @@ public class BankBank {
         }
 
         log.info(String.format("%4d categories loaded.", DataRepository.me().categories().size()));
+    }
+
+    private static void calculateEpargne(List<Category> categories) {
+        Category saving = null;
+        for (int month = 0; month < 12; month++) {
+            Double sum = 0.00;
+            for (Category category : categories) {
+                if (category.getSavings()) {
+                    saving = category;
+                    continue;
+                }
+                sum += category.budget(month);
+            }
+            if (saving != null) {
+                saving.getBudget()[month] = (sum * -1);
+                log.debug(String.format("%d : %,.2f", month, sum));
+            }
+        }
     }
 
     public static void readComments() throws IOException {
