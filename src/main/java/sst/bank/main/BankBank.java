@@ -163,7 +163,7 @@ public class BankBank {
             log.info(String.format("%20s : %5d operations", BankBankConstants.MONTHS[month - 1], count));
         }
         log.info(LINE_STRING);
-        for (Category category : DataRepository.me().categories()) {
+        for (Category category : DataRepository.me().categories().stream().sorted().toList()) {
             final long count = DataRepository.me().operations().stream()
                     .filter(o -> o.getCategory().equals(category))
                     .count();
