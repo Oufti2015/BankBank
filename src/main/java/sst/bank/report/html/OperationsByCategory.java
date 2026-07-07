@@ -27,6 +27,7 @@ public class OperationsByCategory extends HTML {
         HTMLHead head = this.head();
         head.css(BankBankConstants.BANKBANK_CSS);
         HTMLBody body = this.body();
+        body.addChild(new Navigation(Navigation.Pages.INDEX));
         HTMLDiv div = new HTMLDiv();
         div.classId("centered-div");
         body.addChild(div);

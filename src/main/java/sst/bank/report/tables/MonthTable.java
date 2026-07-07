@@ -23,8 +23,8 @@ public class MonthTable extends HTMLTable {
     public static final String NBSP = "&nbsp;";
     private final List<Category> categories;
     private final List<Operation> operations;
-    private Map<Category, Double> array = new HashMap<>();
     private final int month;
+    private Map<Category, Double> array = new HashMap<>();
 
     public MonthTable(int month, List<Category> categories, List<Operation> operations) {
         super();
@@ -33,6 +33,19 @@ public class MonthTable extends HTMLTable {
         this.operations = operations;
         createArray();
         createTable();
+    }
+
+    private static void header(HTMLTableHeaderRow row) {
+        row.newHead().textContent(NBSP);
+        row.newHead().textContent("Dépenses").classId(NUMBER_TD);
+        row.newHead().textContent("Budget").classId(NUMBER_TD);
+        row.newHead().textContent("Diff").classId(NUMBER_TD);
+
+        row.newHead().textContent(NBSP);
+        row.newHead().textContent(NBSP);
+        row.newHead().textContent("Recettes").classId(NUMBER_TD);
+        row.newHead().textContent("Budget").classId(NUMBER_TD);
+        row.newHead().textContent("Diff").classId(NUMBER_TD);
     }
 
     private void createArray() {
@@ -86,7 +99,11 @@ public class MonthTable extends HTMLTable {
                 expenseBudgetSum += budget;
 
                 int diff = budget - expenseAmount;
-                classId = diff >= 0 ? NUMBER_TD : "number-red";
+                if (!expense.getSavings()) {
+                    classId = diff >= 0 ? NUMBER_TD : "number-red";
+                } else {
+                    classId = diff < 0 ? NUMBER_TD : "number-red";
+                }
                 row.newCell(String.format(BankBankConstants.FORMAT_INTEGER_TABLE, diff)).classId(classId);
             } else {
                 row.newCell(NBSP);
@@ -111,22 +128,6 @@ public class MonthTable extends HTMLTable {
         return new Result(expenseSum, expenseBudgetSum, incomeSum, incomeBudgetSum);
     }
 
-    private record Result(int expenseSum, int expenseBudgetSum, int incomeSum, int incomeBudgetSum) {
-    }
-
-    private static void header(HTMLTableHeaderRow row) {
-        row.newHead().textContent(NBSP);
-        row.newHead().textContent("Dépenses").classId(NUMBER_TD);
-        row.newHead().textContent("Budget").classId(NUMBER_TD);
-        row.newHead().textContent("Diff").classId(NUMBER_TD);
-
-        row.newHead().textContent(NBSP);
-        row.newHead().textContent(NBSP);
-        row.newHead().textContent("Recettes").classId(NUMBER_TD);
-        row.newHead().textContent("Budget").classId(NUMBER_TD);
-        row.newHead().textContent("Diff").classId(NUMBER_TD);
-    }
-
     private void footer(HTMLTableFooterRow row, Integer expenseSum, Integer expenseBudgetSum, Integer incomeSum, Integer incomeBudgetSum) {
         row.newCell("Total Dépenses");
         row.newCell(String.format(BankBankConstants.FORMAT_INTEGER_TABLE, expenseSum)).classId(NUMBER_TD);
@@ -137,5 +138,8 @@ public class MonthTable extends HTMLTable {
         row.newCell(String.format(BankBankConstants.FORMAT_INTEGER_TABLE, incomeSum)).classId(NUMBER_TD);
         row.newCell(String.format(BankBankConstants.FORMAT_INTEGER_TABLE, incomeBudgetSum)).classId(NUMBER_TD);
         row.newCell(String.format(BankBankConstants.FORMAT_INTEGER_TABLE, incomeBudgetSum - incomeSum)).classId(NUMBER_TD);
+    }
+
+    private record Result(int expenseSum, int expenseBudgetSum, int incomeSum, int incomeBudgetSum) {
     }
 }

@@ -1,4 +1,4 @@
-package sst.bank.intrfc;
+package sst.bank.services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -46,6 +46,17 @@ public class OperationsTable extends HTMLTable {
             htmlTableRow.newCell(operation.getCommunication());
             htmlTableRow.newCell(dp.format(operation.getDetails()));
         }
+        HTMLTableRow htmlTableRow = this.newRow();
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("<B>Total</B>");
+            htmlTableRow.newCell(String.format(BankBankConstants.FORMAT_DOUBLE_OPERATION, operations.stream().mapToDouble(Operation::getAmount).sum()));
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
+            htmlTableRow.newCell("");
     }
 
     private static void comment(HTMLTableRow htmlTableRow, String name, String account, String comment) {

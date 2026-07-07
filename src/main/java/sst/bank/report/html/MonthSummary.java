@@ -17,8 +17,6 @@ public class MonthSummary extends HTML {
 
     public static final int WIDTH_MARGIN = 15;
     private final int month;
-    private final Navigation.Pages[] pages = {Navigation.Pages.JANUARY, Navigation.Pages.FEBRUARY, Navigation.Pages.MARCH, Navigation.Pages.APRIL, Navigation.Pages.MAY, Navigation.Pages.JUNE,
-            Navigation.Pages.JULY, Navigation.Pages.AUGUST, Navigation.Pages.SEPTEMBER, Navigation.Pages.OCTOBER, Navigation.Pages.NOVEMBER, Navigation.Pages.DECEMBER};
 
     public MonthSummary(int month) {
         this.month = month;
@@ -30,7 +28,7 @@ public class MonthSummary extends HTML {
         head.css(BankBankConstants.BANKBANK_CSS);
         head.css(BankBankConstants.BANKBANK_2_CSS);
         HTMLBody body = this.body();
-        body.addChild(new Navigation(pages[month - 1]));
+        body.addChild(new Navigation(Navigation.pages[month - 1]));
 
         final List<Operation> operations = DataRepository.me().operations().stream()
                 .filter(operation -> operation.getMonth().equals(Month.of(month)))

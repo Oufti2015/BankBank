@@ -7,10 +7,8 @@ import sst.common.html.HTMLUnorderedList;
 import java.io.File;
 
 public class Navigation extends HTMLUnorderedList {
-    public enum Pages {
-        INDEX, BENEFICIARY,
-        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
-    }
+    public static final Navigation.Pages[] pages = {Navigation.Pages.JANUARY, Navigation.Pages.FEBRUARY, Navigation.Pages.MARCH, Navigation.Pages.APRIL, Navigation.Pages.MAY, Navigation.Pages.JUNE,
+            Navigation.Pages.JULY, Navigation.Pages.AUGUST, Navigation.Pages.SEPTEMBER, Navigation.Pages.OCTOBER, Navigation.Pages.NOVEMBER, Navigation.Pages.DECEMBER};
 
     public Navigation(Pages pages) {
         addListItem(menuItem("Main", address("index.html", pages, true), pages.equals(Pages.INDEX)));
@@ -54,5 +52,10 @@ public class Navigation extends HTMLUnorderedList {
             href.classId("active");
         }
         return htmlListItem;
+    }
+
+    public enum Pages {
+        INDEX, BENEFICIARY,
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
     }
 }
