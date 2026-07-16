@@ -1,0 +1,145 @@
+c:\zt974\git\repo_perso\BankBank\src\main\java\sst\bank\editor\
+├── CategoriesEditorApp.java          # Main application launcher
+├── CategoriesEditorController.java   # UI controller with business logic
+└── README.md                          # Documentation
+
+c:\zt974\git\repo_perso\BankBank\src\main\resources\
+└── categories_editor.fxml             # FXML UI layout file
+
+================================================================================
+SUMMARY OF CREATED FILES AND FEATURES
+================================================================================
+
+1. CategoriesEditorApp.java
+   - Main entry point for the JavaFX application
+   - Loads categories from categories.json on startup
+   - Initializes the UI with FXML
+
+2. CategoriesEditorController.java
+   - Handles all UI interactions and business logic
+   - Features:
+     ✓ Create new categories with dialog
+     ✓ Update category properties (name, priority, income/savings flags)
+     ✓ Delete categories with confirmation
+     ✓ Manage monthly budgets for all 12 months
+     ✓ Add new criteria with value, field type, and optional comment
+     ✓ View criteria in a formatted list
+     ✓ Remove criteria with confirmation
+     ✓ Save all changes to categories.json with proper formatting
+
+3. categories_editor.fxml
+   - Modern, user-friendly GUI layout
+   - Split-pane design: left for category info, right for criteria
+   - Features:
+     • Category selector dropdown
+     • Category name, priority, and type (income/savings) inputs
+     • Monthly budget input fields for all 12 months
+     • Criteria list view with detailed display
+     • Criteria management form (add new criteria)
+     • Action buttons with icons
+
+4. README.md
+   - Complete documentation for the module
+   - Usage instructions
+   - Data format explanation
+   - Technical details
+
+================================================================================
+KEY FEATURES IMPLEMENTED
+================================================================================
+
+✓ CREATE NEW CATEGORIES
+  - Click "➕ New Category" button
+  - Enter category name in dialog
+  - Defaults: priority=50, income=false, savings=false
+
+✓ ADD NEW CRITERIA
+  - Enter criteria value (e.g., account number, transaction detail)
+  - Select field type (COUNTERPARTY_ACCOUNT, DETAIL, VALUE_DATE, etc.)
+  - Optionally add a comment
+  - Click "➕ Add Criteria"
+
+✓ CHANGE BUDGET OF A CATEGORY
+  - Select category from dropdown
+  - Edit monthly budget fields (12 months)
+  - Supports decimal values (comma or period)
+  - Click "✏️ Update Category" to save
+
+✓ CHANGE PRIORITY OF A CATEGORY
+  - Select category from dropdown
+  - Edit priority field
+  - Click "✏️ Update Category" to save
+
+✓ ADDITIONAL FEATURES
+  - Edit category name
+  - Toggle income/savings flags
+  - View all criteria for a category
+  - Remove criteria from a category
+  - Delete entire categories
+  - Save all changes to JSON file
+  - Proper error handling and validation
+  - User-friendly dialogs and alerts
+
+================================================================================
+HOW TO RUN THE APPLICATION
+================================================================================
+
+Option 1: Using Maven
+  cd c:\zt974\git\repo_perso\BankBank
+  mvn clean compile
+  mvn exec:java -Dexec.mainClass="sst.bank.editor.CategoriesEditorApp"
+
+Option 2: Using JAR (after building)
+  java -cp target/Bank-2026.002.jar sst.bank.editor.CategoriesEditorApp
+
+Option 3: IDE
+  - Open the project in an IDE (IntelliJ IDEA, Eclipse, etc.)
+  - Right-click CategoriesEditorApp.java
+  - Select "Run" or "Debug"
+
+================================================================================
+WORKFLOW EXAMPLE
+================================================================================
+
+1. Launch the application
+2. Select a category from the dropdown (e.g., "Alimentation")
+3. View its properties:
+   - Name: Alimentation
+   - Priority: 50
+   - Budget: -500.00 (monthly)
+   - Criteria: lists of matching rules
+4. Make changes:
+   - Change name to "Food & Groceries"
+   - Update priority to 60
+   - Modify budget for specific months
+5. Add new criteria:
+   - Value: "CARREFOUR"
+   - Field: DETAIL
+   - Comment: "Supermarket chain"
+6. Remove old criteria by selecting and clicking remove
+7. Click "✏️ Update Category" to save changes
+8. Click "💾 Save Categories to File" to persist to disk
+
+================================================================================
+DEPENDENCIES ADDED
+================================================================================
+
+The following JavaFX dependencies were added to pom.xml:
+- org.openjfx:javafx-fxml (20.0.2)
+- org.openjfx:javafx-controls (20.0.2)
+- org.openjfx:javafx-graphics (20.0.2)
+
+These are required for the GUI to function properly.
+
+================================================================================
+NOTES
+================================================================================
+
+- The application uses the DataRepository singleton to manage categories
+- All changes are kept in memory until you click "Save Categories to File"
+- Input validation prevents invalid data from being saved
+- The UI automatically updates when you select different categories
+- Confirmation dialogs prevent accidental data loss
+- All operations are logged for debugging
+
+================================================================================

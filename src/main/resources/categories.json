@@ -1,0 +1,2244 @@
+[
+  {
+    "priority": 50,
+    "name": "Crédits",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE36774229214981",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE42001212214454",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "PAIEMENT A BANK CARD COMPANY",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "BE38001783274672",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE38001685178572",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "ALPHA CREDIT"
+      }
+    ],
+    "budget": [
+      -1209.77, -1208.92, -1208.06, -1207.2, -1206.34, -1205.48, -1204.63,
+      -1203.77, -1202.91, -1202.06, -1201.2, -1200.35
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Assurances",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "DE28500604142170915301",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Schwabisch Hall"
+      },
+      {
+        "criteria": "BE24310114300038",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE13651161857539",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE64310180203252",
+        "field": "COUNTERPARTY_ACCOUNT"
+      }
+    ],
+    "budget": [
+      -1448.79, 0.0, 0.0, 0.0, 0.0, 0.0, -1303.75, 0.0, 0.0, 0.0, 0.0, -3010.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Epargne",
+    "income": false,
+    "savings": true,
+    "criteria": [
+      {
+        "criteria": "BE86240780456950",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Compte Epargne"
+      },
+      {
+        "criteria": "BE27650920660773",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Revolut"
+      },
+      {
+        "criteria": "EASY SAVE",
+        "field": "DETAIL",
+        "comment": "Compte Epargne Easy Save"
+      }
+    ],
+    "budget": [
+      -2962.120000000001, -458.77999999999975, -1259.7799999999997,
+      -3773.6000000000004, -1187.7799999999997, -6.869999999999891,
+      125.94000000000051, -2785.7799999999997, 1042.0, -2370.0, 94.0, 3267.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Cadeaux",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE80063554630877",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Dominique Stiennon"
+      },
+      {
+        "criteria": "ANNIVERSAIRE MARINE",
+        "field": "DETAIL",
+        "comment": "ANNIVERSAIRE MARINE"
+      },
+      {
+        "criteria": "FLEURS TREICHEL",
+        "field": "DETAIL",
+        "comment": "Treichel Fleuriste Howald"
+      },
+      {
+        "criteria": "LE PASSE TE FRANCE",
+        "field": "DETAIL",
+        "comment": "Le Passe Temps (Toulouse)"
+      },
+      {
+        "criteria": "BILLETTERIE WEB FRANCE",
+        "field": "DETAIL",
+        "comment": "Concert Ben Mazué 21/03/2026"
+      },
+      {
+        "criteria": "APROMOTIONS 1740",
+        "field": "DETAIL",
+        "comment": "Rockhal"
+      },
+      {
+        "criteria": "OPERA ROYAL DE W",
+        "field": "DETAIL",
+        "comment": "Opéra Royal de Wallonie"
+      },
+      {
+        "criteria": "LANCOLIE HALANZY",
+        "field": "DETAIL",
+        "comment": "L\u0027Ancolie"
+      },
+      {
+        "criteria": "PAW PATH",
+        "field": "DETAIL",
+        "comment": "Jouets chiens et chats"
+      },
+      {
+        "criteria": "SEQUOIACANDLE",
+        "field": "DETAIL",
+        "comment": "Bougies en perles"
+      },
+      {
+        "criteria": "MALA SPONSOR OF WATERLOO",
+        "field": "DETAIL",
+        "comment": "Mala India, Waterloo"
+      },
+      {
+        "criteria": "BE64751209094452",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Galgos"
+      },
+      {
+        "criteria": "BE93240043636967",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Arlette Wathelet"
+      },
+      {
+        "criteria": "BE36063499913581",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Anne Stiennon"
+      },
+      {
+        "criteria": "BE72002001945816",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Anne Stiennon"
+      },
+      {
+        "criteria": "BE28063391529320",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE85063578223806",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Fabrice Nadin"
+      },
+      {
+        "criteria": "BE26001103872629",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Ecole d\u0027Alice"
+      },
+      {
+        "criteria": "IKEA BE",
+        "field": "DETAIL",
+        "comment": "Anne"
+      },
+      {
+        "criteria": "SPRL L ANCOLIE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "LEETCHI",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "CLEARSTREAMCHARIT ",
+        "field": "DETAIL",
+        "comment": "Charity Clearstream"
+      },
+      {
+        "criteria": "EFBE",
+        "field": "DETAIL",
+        "comment": "EuroFlorist"
+      },
+      {
+        "criteria": "KADOLOG WATERLOO",
+        "field": "DETAIL",
+        "comment": "Cadeau Sarah et Simon"
+      },
+      {
+        "criteria": "FIMALAC FRANCE",
+        "field": "DETAIL",
+        "comment": "Indochine Amnéville 30012026"
+      }
+    ],
+    "budget": [
+      -540.0, -0.0, -316.83, -623.0, -20.0, -20.0, -485.0, -20.0, -20.0, -20.0,
+      -20.0, -20.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Carburants",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "LU460030728953320000",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "ESSO RODANGE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "TOTAL N",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SHELL STEINFORT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SHELL RODANGE",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [
+      -200.0, -200.0, -208.53, -300.0, -200.0, -200.0, -312.69, -200.0, -200.0,
+      -200.0, -200.0, -200.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Electricité",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE76335055459895",
+        "field": "COUNTERPARTY_ACCOUNT"
+      }
+    ],
+    "budget": [
+      -48.0, -104.0, -104.0, -104.0, -104.0, -104.0, -104.0, -104.0, -104.0,
+      -104.0, -104.0, -104.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Eau",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE71091010926269",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE08096969000113",
+        "field": "COUNTERPARTY_ACCOUNT"
+      }
+    ],
+    "budget": [
+      0.0, 0.0, -102.78, 0.0, 0.0, -102.78, 0.0, 0.0, -102.78, 0.0, 0.0, -102.78
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Salaire",
+    "income": true,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "LU230020124792811300",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "DE79500700100092156905",
+        "field": "COUNTERPARTY_ACCOUNT"
+      }
+    ],
+    "budget": [
+      9293.53, 4993.03, 4993.03, 12000.0, 4993.03, 4993.03, 5501.28, 4993.03,
+      4993.03, 4993.03, 4993.03, 4993.03
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Entretien Maison",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BRICO",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "MAPLEGRSHOP HONG KONG",
+        "field": "DETAIL",
+        "comment": "Graines de Jasmin"
+      },
+      {
+        "criteria": "BE15001952021330",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "GORGAN PIERRE-LUIS"
+      },
+      {
+        "criteria": "ENTREPRISE GORGAN",
+        "field": "DETAIL",
+        "comment": "GORGAN PIERRE-LUIS"
+      },
+      {
+        "criteria": "LUX GREEN",
+        "field": "DETAIL",
+        "comment": "LUX Green"
+      },
+      {
+        "criteria": "ARROUVEMAMA",
+        "field": "DETAIL",
+        "comment": "La cuisine de Mamie"
+      },
+      {
+        "criteria": "IKEA ARLON-STORE",
+        "field": "DETAIL",
+        "comment": "IKEA Arlon"
+      },
+      {
+        "criteria": "BE15001772474330",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE31267007307755",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE39363134178019",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE18751212432565",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "XLG HOME LIBRAMONT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "ENMOINS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "TEMU",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PLAN-IT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "FIXPART",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "BE94001936179614",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE15001772484030",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "CECOTEC",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PAYPAL *ALIPAY",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "ESTRAGON.BE",
+        "field": "DETAIL",
+        "comment": "Larves Coccinelles"
+      },
+      {
+        "criteria": "GAMMA-BE LEUSDEN",
+        "field": "DETAIL",
+        "comment": "GAMME"
+      },
+      {
+        "criteria": "LIDL BELGIUM",
+        "field": "DETAIL",
+        "comment": "LIDL ParkSide"
+      },
+      {
+        "criteria": "GAMMVERT FRANCE",
+        "field": "DETAIL",
+        "comment": "GAMMVERT (Vigne)"
+      },
+      {
+        "criteria": "XLG HOME",
+        "field": "DETAIL",
+        "comment": "XLG HOME"
+      },
+      {
+        "criteria": "BE15001772474330",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Titres Services"
+      }
+    ],
+    "budget": [
+      -437.43, -365.0, -385.72, -365.0, -365.0, -365.0, -365.0, -365.0, -365.0,
+      -365.0, -365.0, -365.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Loisirs",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "GAMESPLANET",
+        "field": "DETAIL",
+        "comment": "Jeux videos"
+      },
+      {
+        "criteria": "Francofolies",
+        "field": "COMMUNICATION",
+        "comment": "Francofolies de Spa"
+      },
+      {
+        "criteria": "PAY SHIELD LTD MARGATE",
+        "field": "DETAIL",
+        "comment": "License Windows"
+      },
+      {
+        "criteria": "ALMA SAS",
+        "field": "DETAIL",
+        "comment": "Nouveau PC"
+      },
+      {
+        "criteria": "ALMA SAS NEUILLY",
+        "field": "DETAIL",
+        "comment": "Nouveau PC"
+      },
+      {
+        "criteria": "CDISCOUNT",
+        "field": "DETAIL",
+        "comment": "CDiscount"
+      },
+      {
+        "criteria": "CENTRE DE MUSIQUE AMPL. LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Rockhal"
+      },
+      {
+        "criteria": "FNAC",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "EURO PUBLIC VIEWING",
+        "field": "DETAIL",
+        "comment": "Boissons FRA-BEL"
+      },
+      {
+        "criteria": "CINE ARLON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "LU450019725502260000",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Dana: remboursement place BEL-FRA"
+      },
+      {
+        "criteria": "LU650090000055813117",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Xavier: remboursement place BEL-FRA"
+      },
+      {
+        "criteria": "FR8330002070340000019686P96",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "EMISYS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PARKING",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "NATIONALE LOTERI",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PAYPAL *GOPRO",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PAYPAL *NORDSEC",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "GOOGLE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "FINGERSOFT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "KINEPOLIS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "FOTOSERVICE",
+        "field": "DETAIL",
+        "comment": "CEWE"
+      },
+      {
+        "criteria": "STEAM GAMES ALLEMAGNE",
+        "field": "DETAIL",
+        "comment": "Jeux Videos"
+      },
+      {
+        "criteria": "RIDGE PAYS-BAS",
+        "field": "DETAIL",
+        "comment": "Portfeuille RIDGE"
+      },
+      {
+        "criteria": "XIFANELBZGC ",
+        "field": "DETAIL",
+        "comment": "Protege GSM"
+      },
+      {
+        "criteria": "RBFA BRUSSEL",
+        "field": "DETAIL",
+        "comment": "Places Belgique-France"
+      },
+      {
+        "criteria": "NATIONALELOTERIJ",
+        "field": "DETAIL",
+        "comment": "Loterie Nationale"
+      },
+      {
+        "criteria": "VELOH LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Velòh!"
+      }
+    ],
+    "budget": [
+      -99.0, 0.0, -100.0, -121.0, -30.0, -90.0, -11.0, 0.0, -120.0, -119.0,
+      -1034.0, -664.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Soins",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "VIVALIA",
+        "field": "DETAIL",
+        "comment": "Vivalia"
+      },
+      {
+        "criteria": "APCOA LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Parking Royal Hamilius"
+      },
+      {
+        "criteria": "DR NICOLINE HYZY",
+        "field": "DETAIL",
+        "comment": "Dr. Nicoline HYZY, Ophtalmo"
+      },
+      {
+        "criteria": "CALCUS ISABELLE",
+        "field": "DETAIL",
+        "comment": "Dr. Isabelle Calcus, Généraliste"
+      },
+      {
+        "criteria": "LU150030550828960000",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Charlotte Dupuis, Ostéopathe"
+      },
+      {
+        "criteria": "LU370019795593456000",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Julien Monville, Ostéopathe"
+      },
+      {
+        "criteria": "LU340099780001190255",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Loic Thomas, Kiné"
+      },
+      {
+        "criteria": "BE50340024500218",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "LU890019100203005000",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE40210007955163",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "PHARMACIE",
+        "field": "DETAIL",
+        "comment": "Pharmacie"
+      },
+      {
+        "criteria": "FAMILIA 15 HALAN",
+        "field": "DETAIL",
+        "comment": "Pharmacie Halanzy"
+      },
+      {
+        "criteria": "HARMONIE 2",
+        "field": "DETAIL",
+        "comment": "Julie, Coiffeur"
+      },
+      {
+        "criteria": "MUSCLEBOOST",
+        "field": "DETAIL",
+        "comment": "Appli Sport"
+      },
+      {
+        "criteria": "MADMUSL",
+        "field": "DETAIL",
+        "comment": "Appli Sport"
+      },
+      {
+        "criteria": "MUSCLEBST",
+        "field": "DETAIL",
+        "comment": "Appli Sport"
+      },
+      {
+        "criteria": "CABINET DR BECK \u0026 ASSOCIE",
+        "field": "DETAIL",
+        "comment": "Dr. Sara Saraiva Salgueiro, Dentiste"
+      },
+      {
+        "criteria": "DR. KOONEN",
+        "field": "DETAIL",
+        "comment": "Dr. Elena Koonen, O.R.L."
+      },
+      {
+        "criteria": "OPTIQUE DEBOULLE",
+        "field": "DETAIL",
+        "comment": "La Lunetterie"
+      },
+      {
+        "criteria": "LA LUNETTERIE",
+        "field": "DETAIL",
+        "comment": "La Lunetterie"
+      },
+      {
+        "criteria": "PHARMACIE DU KIR",
+        "field": "DETAIL",
+        "comment": "Pharmacie du Kirchberg"
+      },
+      {
+        "criteria": "NEWPHARMA",
+        "field": "DETAIL",
+        "comment": "NewPharma"
+      },
+      {
+        "criteria": "PARTENA MUTUALITE LIBRE",
+        "field": "DETAIL",
+        "comment": "Partenamut"
+      },
+      {
+        "criteria": "DR PAOLO CECCHINI",
+        "field": "DETAIL",
+        "comment": "Dr. Paolo Cecchini, Ophtalmo"
+      },
+      {
+        "criteria": "FARMALINE",
+        "field": "DETAIL",
+        "comment": "Farmaline"
+      },
+      {
+        "criteria": "HANS ANDERS",
+        "field": "DETAIL",
+        "comment": "Opticien"
+      },
+      {
+        "criteria": "CENTRE MEDICAL OPHTALMOLO",
+        "field": "DETAIL",
+        "comment": "Dr. Xavier Ricaud, Ophtalmo"
+      },
+      {
+        "criteria": "DR JULIE SZABO",
+        "field": "DETAIL",
+        "comment": "Dr. Julie Szabo, Ophtalmo"
+      },
+      {
+        "criteria": "PODOLOGIE HURSON",
+        "field": "DETAIL",
+        "comment": "Dr. Hurson, Podologue"
+      }
+    ],
+    "budget": [
+      -520.0, 0.0, -65.0, 0.0, -247.0, -75.0, -125.5, -124.0, -40.0, -27.0,
+      -31.0, 10.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Chiens",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "4WOOFZ",
+        "field": "DETAIL",
+        "comment": "4WOOFZ: croquettes pour chiens"
+      },
+      {
+        "criteria": "LU670090000022948608",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "BOONE KOLEN vétérinaires Eischen"
+      },
+      {
+        "criteria": "BE21363173141303",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Dampremy"
+      },
+      {
+        "criteria": "BE98068957765293",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Marine Tonglet"
+      },
+      {
+        "criteria": "DE22586601010005486169",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Laura Poos"
+      },
+      {
+        "criteria": "HSV BEETEBUERG",
+        "field": "DETAIL",
+        "comment": "Lux Winter Cup"
+      },
+      {
+        "criteria": "TOM \u0026 CO",
+        "field": "DETAIL",
+        "comment": "Tom \u0026 Co"
+      },
+      {
+        "criteria": "VETERINAIRE",
+        "field": "DETAIL",
+        "comment": "Vétérinaire"
+      },
+      {
+        "criteria": "SMARTERAGILITYTRIALS",
+        "field": "DETAIL",
+        "comment": "Smarter Agility"
+      },
+      {
+        "criteria": "BE42973415394854",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Agility Antheit"
+      },
+      {
+        "criteria": "LU661111038998040000",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Lux Winter Cup"
+      },
+      {
+        "criteria": "BE46732675196136",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE23001967266191",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Caroline Tonglet"
+      },
+      {
+        "criteria": "BE28751209207620",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Shadow Shop"
+      },
+      {
+        "criteria": "BE68001611318934",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE19210063404912",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE52001381746509",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE96001799292305",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE54973028999697",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE32068930722202",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE32000433861802",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE05000326024575",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE84001677717959",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE32000433861802",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE14973056148583",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE34271013711990",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE64310026167252",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE14973056148583",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE55068210908844",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Club Canin Florenville"
+      },
+      {
+        "criteria": "BE05734062600775",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Bergers Belges"
+      },
+      {
+        "criteria": "LU441111112341150000",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Agility Sanem"
+      },
+      {
+        "criteria": "BE96068202601705",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Bonheidense hv"
+      },
+      {
+        "criteria": "DE13585501300001104488",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Saarbruck"
+      },
+      {
+        "criteria": "ZOOPLUS SE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SEPAY-VAN DRIELS",
+        "field": "DETAIL",
+        "comment": "Magasins JOAWC-SOAWC"
+      },
+      {
+        "criteria": "SENTOBEL OPGLABBEEK",
+        "field": "DETAIL",
+        "comment": "Boissons JOAWC-SOAWC"
+      },
+      {
+        "criteria": "OF SHADOW IN LIGH",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "WORLDAGILIT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "DECATHLON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "CRAFTYFOX",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "GOLDMEDICS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PETNESS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PROAGRI WOLKRANGE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "VETERALIASL",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SABERSBOX",
+        "field": "DETAIL",
+        "comment": "Coussins Noël 2023"
+      },
+      {
+        "criteria": "BE78363234162686",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Marine Tonglet"
+      },
+      {
+        "criteria": "BE97979621231249",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "HS Canis"
+      },
+      {
+        "criteria": "BE57000415929835",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Laura Demarcin"
+      },
+      {
+        "criteria": "BE88751212876341",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Club Canin Buzetois"
+      },
+      {
+        "criteria": "BE03146053926984",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Agility Ostende"
+      },
+      {
+        "criteria": "BE65732675124596",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Muriel Laurent"
+      },
+      {
+        "criteria": "LAURENT MURIEL",
+        "field": "DETAIL",
+        "comment": "Muriel Laurent"
+      }
+    ],
+    "budget": [
+      -79.0, -50.0, -418.0, -220.0, -50.0, -952.0, -416.0, -358.0, -110.0,
+      -80.0, -170.0, -437.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Electroménager",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "NL09DEUT0265258561",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "COOLBLUE",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [
+      -987.98, -48.98, -48.98, -48.98, -48.98, -48.98, -48.98, -48.98, -48.98,
+      -48.98, -48.98, -48.98
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Taxes",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE97068244151249",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "La Praille, huissier"
+      },
+      {
+        "criteria": "BE09091215032457",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE36091215034881",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE28363058915820",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE86097180231050",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE30679200209111",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE34679200362590",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "FOD JUSTITIE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PRONTOPHOT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "COMMUNE D AUBANG",
+        "field": "DETAIL",
+        "comment": "COMMUNE D\u0027AUBANGE"
+      }
+    ],
+    "budget": [
+      0.0, 0.0, -0.0, -435.0, -71.0, 0.0, -63.67, 0.0, 0.0, 0.0, -986.0, 0.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Abonnements",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE65310161050196",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE62375104253861",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE88000325070541",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "HACHETTE COLLEC",
+        "field": "DETAIL",
+        "comment": "Hachette Collections"
+      },
+      {
+        "criteria": "NETFLIX",
+        "field": "DETAIL",
+        "comment": "Netflix"
+      },
+      {
+        "criteria": "SPOTIFY",
+        "field": "DETAIL",
+        "comment": "Spotify"
+      },
+      {
+        "criteria": "AMAZON MUSIC",
+        "field": "DETAIL",
+        "comment": "Amazon Music"
+      },
+      {
+        "criteria": "DISNEYPLUS",
+        "field": "DETAIL",
+        "comment": "Disney+"
+      },
+      {
+        "criteria": "BABBEL",
+        "field": "DETAIL",
+        "comment": "Babbel"
+      },
+      {
+        "criteria": "MICROSOFT",
+        "field": "DETAIL",
+        "comment": "Microsoft"
+      },
+      {
+        "criteria": "ITUNESAPPST",
+        "field": "DETAIL",
+        "comment": "Apple"
+      },
+      {
+        "criteria": "AMAZON PRIME",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZONPRIMEBE",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [
+      -148.0, -148.0, -148.0, -148.0, -148.0, -148.0, -148.0, -148.0, -148.0,
+      -148.0, -148.0, -148.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Téléphonie",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE82210000088968",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "PROXIMUS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "GSM FRANCE",
+        "field": "DETAIL",
+        "comment": "Protection téléphone"
+      }
+    ],
+    "budget": [
+      -162.0, -162.0, -302.72, -164.0, -162.0, -162.0, -162.0, -162.0, -162.0,
+      -162.0, -162.0, -162.0
+    ]
+  },
+  {
+    "priority": 75,
+    "name": "Voyages",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "LU510025151468565400",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "FR7610278050150003056724058",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "FR7610278056110002041320185",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "LU650090000055813117",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "LU830020128441585500",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "LU230022154498867200",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "GAS ATTACK, S.L. ESPAGNE",
+        "field": "DETAIL",
+        "comment": "Canaries"
+      },
+      {
+        "criteria": "BREWERY AIRSIDE LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Aéroport de Luxembourg"
+      },
+      {
+        "criteria": "CARS ON BOOKING",
+        "field": "DETAIL",
+        "comment": "Réservation de voiture"
+      },
+      {
+        "criteria": "EDREAMS",
+        "field": "DETAIL",
+        "comment": "Billets d\u0027avions"
+      },
+      {
+        "criteria": "BE50340024500218",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "LUXAIR ",
+        "field": "DETAIL"
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Paris 2022",
+        "period": {
+          "startDate": "2022-12-30",
+          "endDate": "2023-01-01"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Pouilles 2023",
+        "period": {
+          "startDate": "2023-05-08",
+          "endDate": "2023-05-12"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Bretagne 2023",
+        "period": {
+          "startDate": "2023-06-21",
+          "endDate": "2023-06-25"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Pescara 2023",
+        "period": {
+          "startDate": "2023-09-18",
+          "endDate": "2023-09-25"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Inde 2023",
+        "period": {
+          "startDate": "2023-10-07",
+          "endDate": "2023-10-28"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Egypte 2025",
+        "period": {
+          "startDate": "2025-03-19",
+          "endDate": "2025-03-29"
+        }
+      },
+      {
+        "criteria": "MWSHKLTD HONG KONG",
+        "field": "DETAIL",
+        "comment": "Inde 2023"
+      },
+      {
+        "criteria": "WWW.NOLEGGIARE.IT",
+        "field": "DETAIL",
+        "comment": "Pescara 2023 (PV)"
+      },
+      {
+        "criteria": "PAYPAL *STATEBANKIN SINGAPOUR",
+        "field": "DETAIL",
+        "comment": "eSim"
+      },
+      {
+        "criteria": "EFFIA FRANCE",
+        "field": "DETAIL",
+        "comment": "Payage"
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Paris 2023",
+        "period": {
+          "startDate": "2023-12-30",
+          "endDate": "2024-01-01"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Venise 2024",
+        "period": {
+          "startDate": "2024-05-13",
+          "endDate": "2024-05-17"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Naples 2024",
+        "period": {
+          "startDate": "2024-06-23",
+          "endDate": "2024-06-28"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Ouzbékistan 2024",
+        "period": {
+          "startDate": "2024-09-23",
+          "endDate": "2024-10-08"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Bruxelles 2024",
+        "period": {
+          "startDate": "2024-10-14",
+          "endDate": "2024-10-14"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Prague 2024",
+        "period": {
+          "startDate": "2024-12-05",
+          "endDate": "2024-12-11"
+        }
+      },
+      {
+        "criteria": "EG100057013101016294610010301",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Terre d Egypte"
+      },
+      {
+        "criteria": "VISA2EGYPT",
+        "field": "DETAIL",
+        "comment": "Visa pour l\u0027Egypte"
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Algarve 2025",
+        "period": {
+          "startDate": "2025-04-27",
+          "endDate": "2025-05-02"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Knokke 2025",
+        "period": {
+          "startDate": "2025-04-20",
+          "endDate": "2025-04-21"
+        }
+      },
+      {
+        "criteria": "RYANAIR",
+        "field": "DETAIL",
+        "comment": "RYANAIR"
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Toulouse 2025",
+        "period": {
+          "startDate": "2025-06-21",
+          "endDate": "2025-06-24"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Afrique du Sud 2025",
+        "period": {
+          "startDate": "2025-10-04",
+          "endDate": "2025-10-22"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Paris 2025",
+        "period": {
+          "startDate": "2025-12-25",
+          "endDate": "2025-12-28"
+        }
+      },
+      {
+        "field": "VALUE_DATE",
+        "comment": "Sicile 2026",
+        "period": {
+          "startDate": "2026-05-28",
+          "endDate": "2026-06-07"
+        }
+      }
+    ],
+    "budget": [
+      -500.0, 0.0, -0.0, -0.0, -500.0, -0.0, -585.16, -0.0, -3027.0, -0.0, 0.0,
+      -800.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "BCA",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "BE09700021777857",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "AXA"
+      },
+      {
+        "criteria": "BE05063512144675",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE71068906876669",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE75001528405051",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE03001418420084",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "APPART CITY ARLON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AVA MESSANCY",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "ETS. THEIS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "LUFTHANSA",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 78.91, 0.0, 0.0, 0.0, 0.0, 0.0]
+  },
+  {
+    "priority": 50,
+    "name": "Autres Recettes",
+    "income": true,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "LU581111008544080000",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "BE38001783274672",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "FR7630066109240002000250230",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "COFIDIS BELGIQUE"
+      }
+    ],
+    "budget": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  },
+  {
+    "priority": 50,
+    "name": "Voitures",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "AUTO 5",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AUTODOC",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "BE37068908647628",
+        "field": "COUNTERPARTY_ACCOUNT"
+      },
+      {
+        "criteria": "MULLER PNEUS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "CARGLASS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AUTOSECURITE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "J.A.R. MOTOR SA ARLON",
+        "field": "DETAIL",
+        "comment": "Llorens"
+      },
+      {
+        "criteria": "CFL APP P+R LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "CFL APP P+R"
+      },
+      {
+        "criteria": "CFL P+R RODANGE LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "P+R Rodange"
+      },
+      {
+        "criteria": "WILLEMSEBAK",
+        "field": "DETAIL",
+        "comment": "Auto radio Léon"
+      },
+      {
+        "criteria": "BE12001825675392",
+        "field": "COUNTERPARTY_ACCOUNT",
+        "comment": "Llorens"
+      },
+      {
+        "criteria": "GARAGE RIES FRERES",
+        "field": "DETAIL",
+        "comment": "GARAGE RIES FRERES"
+      },
+      {
+        "criteria": "BP CAPELLEN",
+        "field": "DETAIL",
+        "comment": "Essence"
+      },
+      {
+        "criteria": "Q8 109674 SPRIMONT",
+        "field": "DETAIL",
+        "comment": "Essence"
+      },
+      {
+        "criteria": "GARAGE P. HUBERTY LIBRAMONT",
+        "field": "DETAIL",
+        "comment": "GARAGE P. HUBERTY LIBRAMONT"
+      },
+      {
+        "criteria": "CFL APP P+R",
+        "field": "DETAIL",
+        "comment": "Parking P+R"
+      },
+      {
+        "criteria": "EASYPARK",
+        "field": "DETAIL",
+        "comment": "Parking Application"
+      }
+    ],
+    "budget": [
+      -30.0, 0.0, -1.8, 0.0, -308.0, 0.0, -184.0, -244.0, -182.0, -151.0, 0.0,
+      0.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Alimentation",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "CIRCLE K",
+        "field": "DETAIL",
+        "comment": "Total Rodange"
+      },
+      {
+        "criteria": "LIDL 1210 ATHUS",
+        "field": "DETAIL",
+        "comment": "LIDL Athus"
+      },
+      {
+        "criteria": "MOUTARDERIE LUX",
+        "field": "DETAIL",
+        "comment": "La Moutarderie de Luxembourg"
+      },
+      {
+        "criteria": "AMER SPORTS FRANCE",
+        "field": "DETAIL",
+        "comment": "Chaussures Salomon"
+      },
+      {
+        "criteria": "HELLOFRESH",
+        "field": "DETAIL",
+        "comment": "Hello Fresh"
+      },
+      {
+        "criteria": "FALIANGA",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "BOULANGERIE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "Q8 109675 SPRIMONT",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "CORA SA MESSANCY",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "NESPRESSOBE",
+        "field": "DETAIL",
+        "comment": "Nespresso"
+      },
+      {
+        "criteria": "AUCHAN LUXEMBOUR",
+        "field": "DETAIL",
+        "comment": "Auchan Lux"
+      },
+      {
+        "criteria": "AUCHAN MONT",
+        "field": "DETAIL",
+        "comment": "Auchan France"
+      },
+      {
+        "criteria": "AD DELHAIZE",
+        "field": "DETAIL",
+        "comment": "AD Delhaize"
+      },
+      {
+        "criteria": "ANIMOBOUTIK",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SPAR AUBANGE AUBANGE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "BEERWULF ",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "HOLYPAYPAL",
+        "field": "DETAIL",
+        "comment": "Boissons Holy"
+      },
+      {
+        "criteria": "MARCHE DES SAVEU",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PICARD 0436",
+        "field": "DETAIL",
+        "comment": "Picard"
+      },
+      {
+        "criteria": "CRF HYP ARLON",
+        "field": "DETAIL",
+        "comment": "Carrefour"
+      },
+      {
+        "criteria": "DELITRAITEUR ARL",
+        "field": "DETAIL",
+        "comment": "Delitraiteur"
+      },
+      {
+        "criteria": "ITALIANATURGRENG",
+        "field": "DETAIL",
+        "comment": "Altro Pannetone"
+      },
+      {
+        "criteria": "DAHBI, ADAM ARLON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "PICARD 436",
+        "field": "DETAIL",
+        "comment": "Picard Mont-Saint-Martin"
+      },
+      {
+        "criteria": "CORA 5 MESSANCY",
+        "field": "DETAIL",
+        "comment": "Cora Messancy"
+      },
+      {
+        "criteria": "SALAISONS BLAISE FLORENVILLE",
+        "field": "DETAIL",
+        "comment": "SALAISONS BLAISE FLORENVILLE"
+      }
+    ],
+    "budget": [
+      -300.0, -300.0, -300.0, -300.0, -300.0, -300.0, -263.64, -300.0, -300.0,
+      -300.0, -300.0, -300.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Restaurant",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "RES. AMBIENTE LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "RESTAURANT AMBIENTE"
+      },
+      {
+        "criteria": "MIKROKOSMOS",
+        "field": "DETAIL",
+        "comment": "RESTAURANT MIKROKOSMOS"
+      },
+      {
+        "criteria": "BBB_QK_BE_9418_STORE",
+        "field": "DETAIL",
+        "comment": "Quick Arlon"
+      },
+      {
+        "criteria": "BBB_BK_LUX_1060_STORE",
+        "field": "DETAIL",
+        "comment": "Burger King Kirchberg"
+      },
+      {
+        "criteria": "MCDONALDS 08006 LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "McDonald Remich"
+      },
+      {
+        "criteria": "LS GATSBY MESSANCY",
+        "field": "DETAIL",
+        "comment": "Gatsby Messancy"
+      },
+      {
+        "criteria": "HOTEL LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Hôtel Van der Walk (Arlon)"
+      },
+      {
+        "criteria": "RELAIS DES 4 CHEMINS",
+        "field": "DETAIL",
+        "comment": "Relais des 4 chemins (Gomery)"
+      },
+      {
+        "criteria": "LE CAPUCIN",
+        "field": "DETAIL",
+        "comment": "Le Capucin (Distr. Pizza)"
+      },
+      {
+        "criteria": "TABERNA LONDRINA",
+        "field": "DETAIL",
+        "comment": "TABERNA LONDRINA"
+      },
+      {
+        "criteria": "LE KALINKA ARLON",
+        "field": "DETAIL",
+        "comment": "LE KALINKA"
+      },
+      {
+        "criteria": "LE MARMITON VIRTON",
+        "field": "DETAIL",
+        "comment": "LE MARMITON"
+      },
+      {
+        "criteria": "HOTEL LUXEMBOURG ARLON",
+        "field": "DETAIL",
+        "comment": "Hôtel Van Der Valk Arlon"
+      },
+      {
+        "criteria": "LES FORGES DU PONT DOYE",
+        "field": "DETAIL",
+        "comment": "Les Plats Canailles de la Bleue Maison"
+      },
+      {
+        "criteria": "URBAN ESCH",
+        "field": "DETAIL",
+        "comment": "Urban Rockhal"
+      },
+      {
+        "criteria": "DA FRANCO\u0027S ARLON",
+        "field": "DETAIL",
+        "comment": "DA FRANCO\u0027S ARLON"
+      },
+      {
+        "criteria": "TERRA STEAKHOUSE",
+        "field": "DETAIL",
+        "comment": "Terra Steack House"
+      },
+      {
+        "criteria": "LAZEEZ LIEGE",
+        "field": "DETAIL",
+        "comment": "Libien, Place du Marche"
+      },
+      {
+        "criteria": "FRITERIE JOJO",
+        "field": "DETAIL",
+        "comment": "Friterie de Signeulx"
+      },
+      {
+        "criteria": "PIZZA DI BARLETT",
+        "field": "DETAIL",
+        "comment": "Pizza Di Barlett, Pizzeria Musson"
+      },
+      {
+        "criteria": "ARAMARK",
+        "field": "DETAIL",
+        "comment": "Clearstream Card"
+      },
+      {
+        "criteria": "LETZE BURGER",
+        "field": "DETAIL",
+        "comment": "Burger Glacis FRA-BEL"
+      },
+      {
+        "criteria": "FARINELLA",
+        "field": "DETAIL",
+        "comment": "Farinella"
+      },
+      {
+        "criteria": "RESTAURANT FARIN",
+        "field": "DETAIL",
+        "comment": "Farinella"
+      },
+      {
+        "criteria": "BURGER KING",
+        "field": "DETAIL",
+        "comment": "Burger King"
+      },
+      {
+        "criteria": "QUICK",
+        "field": "DETAIL",
+        "comment": "Quick"
+      },
+      {
+        "criteria": "O\u0027TACOS",
+        "field": "DETAIL",
+        "comment": "O\u0027TACOS"
+      },
+      {
+        "criteria": "100 PATATES",
+        "field": "DETAIL",
+        "comment": "100 Patates"
+      },
+      {
+        "criteria": "IL CASTELLO BORG",
+        "field": "DETAIL",
+        "comment": "Il Catello Borghese"
+      },
+      {
+        "criteria": "DA LEONI",
+        "field": "DETAIL",
+        "comment": "Da Leoni"
+      },
+      {
+        "criteria": "POKHARA LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Pokhara Rodange"
+      },
+      {
+        "criteria": "SUSHI LOVERS",
+        "field": "DETAIL",
+        "comment": "Sushi Lovers"
+      },
+      {
+        "criteria": "RESTAURANT LA TA",
+        "field": "DETAIL",
+        "comment": "La Table De Jo"
+      },
+      {
+        "criteria": "KBEEF LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "KBeef"
+      },
+      {
+        "criteria": "LE SOLEIL KABYLE",
+        "field": "DETAIL",
+        "comment": "La Couscoussiere"
+      },
+      {
+        "criteria": "LE PETIT BAIGNEU",
+        "field": "DETAIL",
+        "comment": "Le Petit Baigneur (Seneffe)"
+      },
+      {
+        "criteria": "VITA DESIGN LUXEMBOUR",
+        "field": "DETAIL",
+        "comment": "Come A La Maison"
+      },
+      {
+        "criteria": "EJC ARLON ARLON",
+        "field": "DETAIL",
+        "comment": "Faubourg 101"
+      },
+      {
+        "criteria": "ROCHEHAUT",
+        "field": "DETAIL",
+        "comment": "Foire de Libramont"
+      },
+      {
+        "criteria": "L\u0027ENFANT GATE",
+        "field": "DETAIL",
+        "comment": "L\u0027Enfant gâté (Habay)"
+      },
+      {
+        "criteria": "ENTRE NOUS",
+        "field": "DETAIL",
+        "comment": "Entre Nous (Virton)"
+      },
+      {
+        "criteria": "RESTAURANT L\u0027ALTRO",
+        "field": "DETAIL",
+        "comment": "L\u0027Altro"
+      },
+      {
+        "criteria": "TRATTORIA MTT HABAY-LA-VIEI",
+        "field": "DETAIL",
+        "comment": "Trattoria Mange et tais-toi"
+      },
+      {
+        "criteria": "QOSQO K LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "QoSQo"
+      },
+      {
+        "criteria": "213TH FRANCE",
+        "field": "DETAIL",
+        "comment": "Burger Longwy"
+      },
+      {
+        "criteria": "REST. OSTERIA DEL BIVIO",
+        "field": "DETAIL",
+        "comment": "Osteria El Bivio"
+      },
+      {
+        "criteria": "RESTOHORECA SPRL HERSTAL",
+        "field": "DETAIL",
+        "comment": "La Rotonda, Herstal"
+      },
+      {
+        "criteria": "LA COURONNE ROYALE",
+        "field": "DETAIL",
+        "comment": "La Couronne Rozale, Pétange"
+      },
+      {
+        "criteria": "restaurant 30",
+        "field": "COMMUNICATION",
+        "comment": "Remboursement"
+      },
+      {
+        "criteria": "LE GIORGI BASTOGNE",
+        "field": "DETAIL",
+        "comment": "LE GIORGI BASTOGNE"
+      },
+      {
+        "criteria": "PATISSERIE MAZZEI ARLON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "CHALET LANGWISS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "IL TOCCO",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "MAXI-FRITES",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "STREETCATERING LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Schueberfouer"
+      },
+      {
+        "criteria": "LE FRANKLIN VIRTON",
+        "field": "DETAIL",
+        "comment": "LE FRANKLIN VIRTON"
+      },
+      {
+        "criteria": "IL MOMENTO LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "IL MOMENTO LUXEMBOURG"
+      },
+      {
+        "criteria": "MAMA SHELTER LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "MAMA SHELTER LUXEMBOURG"
+      },
+      {
+        "criteria": "PEPPERMINT KIRCHBERG",
+        "field": "DETAIL",
+        "comment": "PEPPERMINT KIRCHBERG"
+      },
+      {
+        "criteria": "ESATTORIA NIVI SPA",
+        "field": "DETAIL",
+        "comment": "ESATTORIA NIVI SPA"
+      },
+      {
+        "criteria": "THE HUGGYS BAR",
+        "field": "DETAIL",
+        "comment": "THE HUGGYS BAR"
+      },
+      {
+        "criteria": "FISCHER KIRCHBERG",
+        "field": "DETAIL",
+        "comment": "FISCHER KIRCHBERG"
+      },
+      {
+        "criteria": "WAFFLE KIRCHBERG",
+        "field": "DETAIL",
+        "comment": "WAFFLE KIRCHBERG"
+      },
+      {
+        "criteria": "DAL NOTARO LUXEMBOURG",
+        "field": "DETAIL",
+        "comment": "Dal Notaro"
+      },
+      {
+        "criteria": "RESTAURANT SHARMA",
+        "field": "DETAIL",
+        "comment": "RESTAURANT SHARMA"
+      },
+      {
+        "criteria": "PIZZA HUT 353",
+        "field": "DETAIL",
+        "comment": "Pizza Hut Arlon"
+      },
+      {
+        "criteria": "BBB_QK_BE_9418_MOBILE",
+        "field": "DETAIL",
+        "comment": "Quick Mobile"
+      }
+    ],
+    "budget": [
+      -578.73, -831.75, -500.0, -500.0, -325.0, -325.0, -563.3, -493.0, -325.0,
+      -105.0, -486.0, -446.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Hygiène",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "900CARE",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "SEPHORA",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [0.0, 0.0, -81.0, 0.0, 0.0, 0.0, -47.0, 0.0, 0.0, 0.0, -48.0, 0.0]
+  },
+  {
+    "priority": 50,
+    "name": "Achat sur Internet",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "LOGITECH",
+        "field": "DETAIL",
+        "comment": "Logitech"
+      },
+      {
+        "criteria": "UNIQUESTRAP HONG KONG",
+        "field": "DETAIL",
+        "comment": "Bracelet Samusung Galaxy Watch"
+      },
+      {
+        "criteria": "AMAZ*",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZON BE RETAIL",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZON EU SARL",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZON PAYMENTS",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "WWW.AMAZON",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMZN MKTP FR",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZON MEDIA",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZON.FR",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMZ*AIGOTECH",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMZ*YONGLAIEU",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMZ*PYRJIN",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZONRETAIL",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "AMAZONMKTPLC",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "DIGITALRIVE DR ALLEMAGNE",
+        "field": "DETAIL",
+        "comment": "Logitech"
+      },
+      {
+        "criteria": "AMANDEIA",
+        "field": "DETAIL",
+        "comment": "Arnaque"
+      },
+      {
+        "criteria": "AMAZON.BE",
+        "field": "DETAIL",
+        "comment": "Amazon"
+      }
+    ],
+    "budget": [
+      -205.0, -200.0, -569.38, -200.0, -200.0, -200.0, -503.94, -200.0, -200.0,
+      -200.0, -200.0, -200.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Retrait d\u0027Espèces",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "RETRAIT D\u0027ESPECES",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [-60.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  },
+  {
+    "priority": 50,
+    "name": "Frais Bancaires",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "Coûts opérations diverses",
+        "field": "TRANSACTION_TYPE"
+      },
+      {
+        "criteria": "Intérêts du compte à vue",
+        "field": "TRANSACTION_TYPE"
+      },
+      {
+        "criteria": "Frais liés au compte",
+        "field": "TRANSACTION_TYPE"
+      },
+      {
+        "criteria": "PRIME D\u0027ASSURANCE",
+        "field": "DETAIL"
+      }
+    ],
+    "budget": [
+      -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0, -15.0,
+      -22.0, -15.0
+    ]
+  },
+  {
+    "priority": 40,
+    "name": "Crypto",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "ALCHEMYPAY.ORG",
+        "field": "DETAIL",
+        "comment": "Go Mining"
+      },
+      {
+        "criteria": "MRCR MOBILE",
+        "field": "DETAIL",
+        "comment": "Go Mining"
+      },
+      {
+        "criteria": "GOOGLE GOMININ",
+        "field": "DETAIL",
+        "comment": "Go Mining"
+      },
+      {
+        "criteria": "MRCR APPLEPAY",
+        "field": "DETAIL",
+        "comment": "Go Mining"
+      }
+    ],
+    "budget": [
+      0.0, 0.0, 0.0, 0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0, -0.0
+    ]
+  },
+  {
+    "priority": 50,
+    "name": "Vêtements",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "criteria": "ZARA LUXEMBOUR",
+        "field": "DETAIL"
+      },
+      {
+        "criteria": "FINCUT FRANCE",
+        "field": "DETAIL",
+        "comment": "Tee shirts"
+      },
+      {
+        "criteria": "MANIDIS SA SUISSE",
+        "field": "DETAIL",
+        "comment": "Boxer Tono"
+      }
+    ],
+    "budget": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -77.0, 0.0]
+  },
+  {
+    "priority": 99,
+    "name": "Inconnu",
+    "income": false,
+    "savings": false,
+    "criteria": [
+      {
+        "field": "ALL"
+      }
+    ],
+    "budget": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  }
+]
