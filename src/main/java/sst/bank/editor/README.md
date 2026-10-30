@@ -49,11 +49,12 @@ The JavaFX FXML file defining the user interface layout with:
 
 ### Starting the Application
 
-```bash
-java -cp target/Bank-2026.002.jar sst.bank.editor.CategoriesEditorApp
-```
+In IntelliJ IDEA, run `sst.bank.editor.CategoriesEditorApp` as a regular Java
+application. This class is a launcher (not a subclass of JavaFX `Application`),
+so the JavaFX libraries already on the project classpath can be initialized
+without configuring a separate JavaFX module path.
 
-Or directly from Maven:
+Or launch it from Maven:
 ```bash
 mvn exec:java -Dexec.mainClass="sst.bank.editor.CategoriesEditorApp"
 ```

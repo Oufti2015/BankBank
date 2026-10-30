@@ -10,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
 import sst.bank.gson.conv.GsonLocalDate;
 import sst.bank.main.BankBankConstants;
@@ -242,7 +241,7 @@ public class CategoriesEditorController {
             }
             category.setBudget(budget);
 
-            categoryComboBox.refresh();
+            //categoryComboBox.refresh();
             showInfoAlert("Success", "Category updated successfully!");
             log.info("Category updated: " + name);
         }

@@ -21,54 +21,59 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Log4j2
-public class CategoriesEditorApp extends Application {
+public class CategoriesEditorApp {
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        log.info("Starting CategoriesEditorApp");
-
-        // Load categories from file
-        loadCategories();
-
-        // Load FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/categories_editor.fxml"));
-        Scene scene = new Scene(loader.load(), 1400, 900);
-
-        primaryStage.setTitle("BankBank - Categories Editor");
-        primaryStage.setScene(scene);
-
-        // Set icon if available
-        try {
-            Image icon = new Image(getClass().getResourceAsStream("/icon.png"));
-            primaryStage.getIcons().add(icon);
-        } catch (Exception e) {
-            log.debug("Icon not found");
+    public static class CategoriesEditorApplication extends Application {
+        public CategoriesEditorApplication() {
         }
 
-        primaryStage.show();
-        log.info("CategoriesEditorApp started successfully");
-    }
+        @Override
+        public void start(Stage primaryStage) throws IOException {
+            log.info("Starting CategoriesEditorApp");
 
-    private void loadCategories() throws IOException {
-        log.info("Loading categories from " + BankBankConstants.CATEGORIES_FILE);
-        try {
-            Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(LocalDate.class, new GsonLocalDate())
-                    .create();
+            // Load categories from file
+            loadCategories();
 
-            String json = new String(Files.readAllBytes(Paths.get(BankBankConstants.CATEGORIES_FILE)));
-            List<Category> categories = gson.fromJson(json, new TypeToken<List<Category>>(){}.getType());
+            // Load FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/categories_editor.fxml"));
+            Scene scene = new Scene(loader.load(), 1400, 900);
 
-            DataRepository.me().addCategories(categories);
-            log.info(String.format("%d categories loaded.", DataRepository.me().categories().size()));
-        } catch (IOException e) {
-            log.error("Error loading categories", e);
-            throw e;
+            primaryStage.setTitle("BankBank - Categories Editor");
+            primaryStage.setScene(scene);
+
+            // Set icon if available
+            try {
+                Image icon = new Image(getClass().getResourceAsStream("/icon.png"));
+                primaryStage.getIcons().add(icon);
+            } catch (Exception e) {
+                log.debug("Icon not found");
+            }
+
+            primaryStage.show();
+            log.info("CategoriesEditorApp started successfully");
+        }
+
+        private void loadCategories() throws IOException {
+            log.info("Loading categories from " + BankBankConstants.CATEGORIES_FILE);
+            try {
+                Gson gson = new GsonBuilder()
+                        .registerTypeAdapter(LocalDate.class, new GsonLocalDate())
+                        .create();
+
+                String json = new String(Files.readAllBytes(Paths.get(BankBankConstants.CATEGORIES_FILE)));
+                List<Category> categories = gson.fromJson(json, new TypeToken<List<Category>>(){}.getType());
+
+                DataRepository.me().addCategories(categories);
+                log.info(String.format("%d categories loaded.", DataRepository.me().categories().size()));
+            } catch (IOException e) {
+                log.error("Error loading categories", e);
+                throw e;
+            }
         }
     }
 
     public static void main(String[] args) {
         log.info("Launching CategoriesEditorApp");
-        launch(args);
+        Application.launch(CategoriesEditorApplication.class, args);
     }
 }
