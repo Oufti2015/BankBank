@@ -62,7 +62,7 @@ public class CategoriesEditorController {
     @FXML
     private Button saveCategoriesButton;
 
-    private TextField[] budgetTextFields = new TextField[12];
+    private final TextField[] budgetTextFields = new TextField[12];
 
     @FXML
     public void initialize() {
@@ -123,7 +123,7 @@ public class CategoriesEditorController {
             return;
         }
 
-        log.info("Category selected: " + category);
+        log.info("Category selected: {}", category);
 
         categoryNameTextField.setText(category.getName());
         priorityTextField.setText(category.getPriority().toString());
@@ -185,9 +185,9 @@ public class CategoriesEditorController {
             DataRepository.me().categories().add(newCategory);
             categoryComboBox.setItems(categories());
             categoryComboBox.getSelectionModel().select(newCategory);
-            log.info("Category created: " + categoryName);
+            log.info("Category created: {}", categoryName);
 
-            showInfoAlert("Success", "Category '" + categoryName + "' created successfully!");
+            showInfoAlert("Category '" + categoryName + "' created successfully!");
         }
     }
 
@@ -198,25 +198,25 @@ public class CategoriesEditorController {
 
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            showErrorAlert("Error", NO_CATEGORY_SELECTED);
+            showErrorAlert(NO_CATEGORY_SELECTED);
             return;
         }
 
         final String name = categoryNameTextField.getText();
         if (Strings.isNullOrEmpty(name)) {
-            showErrorAlert("Error", "Please fill category name!");
+            showErrorAlert("Please fill category name!");
             error = true;
         }
 
         final String priorityText = priorityTextField.getText();
         if (Strings.isNullOrEmpty(priorityText)) {
-            showErrorAlert("Error", "Please fill priority!");
+            showErrorAlert("Please fill priority!");
             error = true;
         } else {
             try {
                 Integer.parseInt(priorityText);
             } catch (NumberFormatException e) {
-                showErrorAlert("Error", "Priority must be a number!");
+                showErrorAlert("Priority must be a number!");
                 error = true;
             }
         }
@@ -234,7 +234,7 @@ public class CategoriesEditorController {
                     try {
                         budget[i] = parseDouble(text);
                     } catch (NumberFormatException e) {
-                        log.warn("Invalid budget value for month " + i + ": " + text);
+                        log.warn("Invalid budget value for month {}: {}", i, text);
                         budget[i] = 0.0;
                     }
                 }
@@ -242,8 +242,8 @@ public class CategoriesEditorController {
             category.setBudget(budget);
 
             //categoryComboBox.refresh();
-            showInfoAlert("Success", "Category updated successfully!");
-            log.info("Category updated: " + name);
+            showInfoAlert("Category updated successfully!");
+            log.info("Category updated: {}", name);
         }
     }
 
@@ -251,7 +251,7 @@ public class CategoriesEditorController {
     private void deleteCategoryAction() {
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            showErrorAlert("Error", NO_CATEGORY_SELECTED);
+            showErrorAlert(NO_CATEGORY_SELECTED);
             return;
         }
 
@@ -265,8 +265,8 @@ public class CategoriesEditorController {
             DataRepository.me().categories().remove(category);
             categoryComboBox.setItems(categories());
             clearCategoryInfo();
-            showInfoAlert("Success", "Category deleted successfully!");
-            log.info("Category deleted: " + category.getName());
+            showInfoAlert("Category deleted successfully!");
+            log.info("Category deleted: {}", category.getName());
         }
     }
 
@@ -275,19 +275,19 @@ public class CategoriesEditorController {
         log.info("Adding criteria");
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            showErrorAlert("Error", NO_CATEGORY_SELECTED);
+            showErrorAlert(NO_CATEGORY_SELECTED);
             return;
         }
 
         final String criteriaText = criteriaSearchTextField.getText();
         if (Strings.isNullOrEmpty(criteriaText)) {
-            showErrorAlert("Error", "Please fill criteria value!");
+            showErrorAlert("Please fill criteria value!");
             return;
         }
 
         final CriteriaField criteriaField = criteriaFieldComboBox.getSelectionModel().getSelectedItem();
         if (criteriaField == null) {
-            showErrorAlert("Error", "Please select criteria field!");
+            showErrorAlert("Please select criteria field!");
             return;
         }
 
@@ -304,8 +304,8 @@ public class CategoriesEditorController {
         criteriaCommentTextField.clear();
         criteriaFieldComboBox.getSelectionModel().clearSelection();
 
-        showInfoAlert("Success", "Criteria added successfully!");
-        log.info("Criteria added: " + newCriteria);
+        showInfoAlert("Criteria added successfully!");
+        log.info("Criteria added: {}", newCriteria);
     }
 
     @FXML
@@ -313,13 +313,13 @@ public class CategoriesEditorController {
         log.info("Removing criteria");
         final Category category = categoryComboBox.getSelectionModel().getSelectedItem();
         if (category == null) {
-            showErrorAlert("Error", NO_CATEGORY_SELECTED);
+            showErrorAlert(NO_CATEGORY_SELECTED);
             return;
         }
 
         final Criteria selectedCriteria = criteriaListView.getSelectionModel().getSelectedItem();
         if (selectedCriteria == null) {
-            showErrorAlert("Error", "Please select a criteria to remove!");
+            showErrorAlert("Please select a criteria to remove!");
             return;
         }
 
@@ -332,8 +332,8 @@ public class CategoriesEditorController {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             category.getCriteria().remove(selectedCriteria);
             fillCriteriaListView(category.getCriteria());
-            showInfoAlert("Success", "Criteria removed successfully!");
-            log.info("Criteria removed: " + selectedCriteria);
+            showInfoAlert("Criteria removed successfully!");
+            log.info("Criteria removed: {}", selectedCriteria);
         }
     }
 
@@ -350,13 +350,13 @@ public class CategoriesEditorController {
             String json = gson.toJson(DataRepository.me().categories());
             try (PrintWriter out = new PrintWriter(BankBankConstants.CATEGORIES_FILE)) {
                 out.println(json);
-                log.info("File saved to " + BankBankConstants.CATEGORIES_FILE);
-                showInfoAlert("Success", "Categories saved successfully to " +
+                log.info("File saved to {}", BankBankConstants.CATEGORIES_FILE);
+                showInfoAlert("Categories saved successfully to " +
                         BankBankConstants.CATEGORIES_FILE);
             }
         } catch (FileNotFoundException e) {
-            log.error("Cannot write to " + BankBankConstants.CATEGORIES_FILE, e);
-            showErrorAlert("Error", "Cannot save to " + BankBankConstants.CATEGORIES_FILE + "\n" + e.getMessage());
+            log.error("Cannot write to {}", BankBankConstants.CATEGORIES_FILE, e);
+            showErrorAlert("Cannot save to " + BankBankConstants.CATEGORIES_FILE + "\n" + e.getMessage());
         }
     }
 
@@ -366,17 +366,17 @@ public class CategoriesEditorController {
         return Double.parseDouble(result);
     }
 
-    private void showInfoAlert(String title, String content) {
+    private void showInfoAlert(String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
+        alert.setTitle("Success");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
     }
 
-    private void showErrorAlert(String title, String content) {
+    private void showErrorAlert(String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
